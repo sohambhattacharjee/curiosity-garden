@@ -139,7 +139,7 @@ struct ParentView: View {
             Text("Learning overview").font(.title.bold())
             Text("Last 90 days · 'I'm not sure' counts as an attempted, non-correct answer. Unanswered questions are excluded. Interrupted rounds keep answered questions.")
             Text("Total foreground play: \(Int(store.state.clock.totalPlay / 60)) minutes")
-            ForEach(Subject.allCases, id: \.self) { subject in subjectSummary(subject) }
+            ForEach(GardenCore.Subject.allCases, id: \.self) { subject in subjectSummary(subject) }
             gradeSetting
             Toggle("Question-by-question history", isOn: $showHistory)
             if showHistory {
@@ -155,7 +155,7 @@ struct ParentView: View {
             Text("Changing grade preserves subject learning and the current session allowance.").font(.footnote)
         }
     }
-    private func subjectSummary(_ subject: Subject) -> some View {
+    private func subjectSummary(_ subject: GardenCore.Subject) -> some View {
         let records = store.state.history.filter { $0.question.subject == subject }
         let correct = records.filter { $0.correct }.count
         let percent = records.isEmpty ? 0 : Int(Double(correct) / Double(records.count) * 100)
