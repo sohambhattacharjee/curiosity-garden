@@ -26,3 +26,19 @@ xcuserdata/
 # Reserved local-only data and report export directories
 LocalData/
 PrivateExports/
+
+.build/
+.swiftpm/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.mobileprovision
+*.p12
+*.p8
+*.cer
+state.json
+*.xcarchive
+*.ipa
+
+__pycache__/
+*.pyc

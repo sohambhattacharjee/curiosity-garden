@@ -2,9 +2,29 @@
 
 A calm, offline trivia app being designed for children in kindergarten through grade 5, on iPhone and iPad.
 
-**Status: requirements and planning. There is no runnable app or reviewed question bank yet.** The project is public and open source under the MIT license. Maintainer builds are for family use, with no monetization and no maintainer App Store release planned.
+**Status: native SwiftUI development preview for iPhone and iPad (iOS/iPadOS 17+). The offline flow is implemented; the bundled questions are drafts and there is no reviewed question bank yet.** The project is public and open source under the MIT license. Maintainer builds are for family use, with no monetization and no maintainer App Store release planned.
 
-## Planned experience
+## Screenshots
+
+Captured from local Xcode simulator runs using synthetic progress. These show a **Debug development preview with draft questions**, not reviewed educational content.
+
+### iPhone
+
+<table>
+<tr><th>Mixed round</th><th>Parent report</th><th>Persistent break</th></tr>
+<tr><td><img src="docs/screenshots/iphone-question.png" width="240" alt="Math question with counting dots and three answer choices" /></td><td><img src="docs/screenshots/iphone-parent-report.png" width="240" alt="PIN-protected learning overview with fictional attempts" /></td><td><img src="docs/screenshots/iphone-break.png" width="240" alt="Calm mandatory-break screen preserved after relaunch" /></td></tr>
+</table>
+
+### iPad
+
+<table>
+<tr><th>Parent setup</th><th>Explanation</th><th>Learning recap</th></tr>
+<tr><td><img src="docs/screenshots/ipad-setup.png" width="260" alt="Parent setup with a grade selector and six-digit PIN" /></td><td><img src="docs/screenshots/ipad-explanation.png" width="320" alt="Incorrect-answer explanation waiting for Next" /></td><td><img src="docs/screenshots/ipad-recap.png" width="320" alt="Two learning facts and a calm ending without a score" /></td></tr>
+</table>
+
+<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape showing a question, correct-answer explanation, and Next button" />
+
+## Experience
 
 - A parent selects the child's grade behind a separate parent PIN.
 - Mixed questions combine school subjects and general knowledge in an even balance.
@@ -27,7 +47,14 @@ A calm, offline trivia app being designed for children in kindergarten through g
 
 ## Building and testing
 
-An Xcode project and app implementation have not been added. Build and test instructions will accompany the first runnable implementation. Device support, minimum OS versions, architecture, and content-review procedures still need to be specified.
+Open `CuriosityGarden.xcodeproj` and run the shared CuriosityGarden scheme on an iPhone/iPad simulator or your own signed device. Debug builds allow draft fixtures with a visible banner; Release builds accept reviewed content only and currently have no playable reviewed bank.
+
+```sh
+bash scripts/test_coverage.sh
+xcodebuild -project CuriosityGarden.xcodeproj -scheme CuriosityGarden -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+```
+
+See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI requires 95% unit-test line coverage overall and for every production logic file, plus Debug/Release iOS compilation, on every push and pull request. The declarative SwiftUI view file is checked through UI validation rather than unit coverage. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
 
 ## Adapting and publishing
 
@@ -35,7 +62,7 @@ You are welcome to adapt Curiosity Garden, build your own version, and publish i
 
 ## Acknowledgment (optional)
 
-If Curiosity Garden helps you build or publish something, we'd love a friendly acknowledgment and a link back to [this repository](https://github.com/sohambhattacharjee/curiosity-garden). A GitHub star is also appreciated if you find the project useful.
+If Curiosity Garden helps you build or publish something, I'd love a friendly acknowledgment and a link back to [this repository](https://github.com/sohambhattacharjee/curiosity-garden). A GitHub star is also appreciated if you find the project useful.
 
 These requests are entirely optional and add no license conditions. Please preserve the copyright and license notices required by MIT.
 
