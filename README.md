@@ -8,12 +8,21 @@ A calm, offline trivia app being designed for children in kindergarten through g
 
 Captured from local Xcode simulator runs using synthetic progress. These show a **Debug development preview with draft questions**, not reviewed educational content.
 
+### iPhone
+
 <table>
-<tr><th>Parent setup</th><th>Mixed round</th><th>Explanation</th></tr>
-<tr><td><img src="docs/screenshots/iphone-setup.png" width="240" alt="Parent setup with grade selector and a six-digit PIN" /></td><td><img src="docs/screenshots/iphone-question.png" width="240" alt="Math question with counting dots and three answer choices" /></td><td><img src="docs/screenshots/iphone-explanation.png" width="240" alt="Incorrect-answer explanation waiting for Next" /></td></tr>
-<tr><th>Learning recap</th><th>Parent report</th><th>iPad</th></tr>
-<tr><td><img src="docs/screenshots/iphone-recap.png" width="240" alt="Two learning facts and a calm ending without a score" /></td><td><img src="docs/screenshots/iphone-parent-report.png" width="240" alt="PIN-protected learning overview with fictional attempts" /></td><td><img src="docs/screenshots/ipad-question.png" width="320" alt="The centered question layout on iPad" /></td></tr>
+<tr><th>Mixed round</th><th>Parent report</th><th>Persistent break</th></tr>
+<tr><td><img src="docs/screenshots/iphone-question.png" width="240" alt="Math question with counting dots and three answer choices" /></td><td><img src="docs/screenshots/iphone-parent-report.png" width="240" alt="PIN-protected learning overview with fictional attempts" /></td><td><img src="docs/screenshots/iphone-break.png" width="240" alt="Calm mandatory-break screen preserved after relaunch" /></td></tr>
 </table>
+
+### iPad
+
+<table>
+<tr><th>Parent setup</th><th>Explanation</th><th>Learning recap</th></tr>
+<tr><td><img src="docs/screenshots/ipad-setup.png" width="260" alt="Parent setup with a grade selector and six-digit PIN" /></td><td><img src="docs/screenshots/ipad-explanation.png" width="320" alt="Incorrect-answer explanation waiting for Next" /></td><td><img src="docs/screenshots/ipad-recap.png" width="320" alt="Two learning facts and a calm ending without a score" /></td></tr>
+</table>
+
+<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape showing a question, correct-answer explanation, and Next button" />
 
 ## Experience
 
