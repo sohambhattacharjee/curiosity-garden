@@ -6,6 +6,6 @@
 
 Use the same bundle identifier and signing identity for updates. Development signing may expire; rebuild from Xcode when needed. The bundled questions work offline in Debug and Release.
 
-Each device has independent local progress. There is no account, synchronization, backup recovery, or PIN recovery service. Keep signing credentials outside git.
+Each device has independent local progress. There is no account, synchronization, or backup recovery. Keep signing credentials outside git.
 
-A forgotten PIN requires an intentional development reset of app data and the `org.curiositygarden.parent-pin` Keychain entry. Uninstalling alone may leave the PIN in Keychain. Resetting removes local learning and timing records.
+Forgot the PIN? Open **Parents → Forgot PIN?**, enter a matching new six-digit PIN, then authenticate with Face ID, Touch ID, or the device passcode. Enter the new PIN to open reports. This preserves learning, session limits, and breaks. Anyone able to unlock the device can reset the PIN; a device passcode must be configured in Settings.

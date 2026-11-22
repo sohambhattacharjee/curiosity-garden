@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import GardenCore
 import Darwin
+import LocalAuthentication
 
 @MainActor final class GardenStore: ObservableObject {
     @Published var state = GardenState()
@@ -10,15 +11,23 @@ import Darwin
     @Published var parentUnlocked = false
     @Published var recap = false
     @Published var active = true
+    @Published private(set) var recoveringPIN = false
     let bank: [Question]
     let allowsDrafts: Bool
     private let url: URL
     private let now: () -> Date
     private let uptime: () -> TimeInterval
+    private let authenticationContext: () -> LAContext
+    private let pinService: String
+    private var recoveryContext: LAContext?
+    private var recoveryID: UUID?
     init(url: URL? = nil, bank: [Question]? = nil, allowsDrafts: Bool? = nil,
-         now: @escaping () -> Date = Date.init, uptime: (() -> TimeInterval)? = nil) {
+         now: @escaping () -> Date = Date.init, uptime: (() -> TimeInterval)? = nil,
+         authenticationContext: @escaping () -> LAContext = LAContext.init, pinService: String = ParentPIN.service) {
         self.now = now
         self.uptime = uptime ?? { Self.continuousTime }
+        self.authenticationContext = authenticationContext
+        self.pinService = pinService
         #if DEBUG
         self.allowsDrafts = allowsDrafts ?? true
         #else
@@ -105,9 +114,57 @@ import Darwin
         let record = AnswerRecord(roundID: round.id, question: question, response: response, date: now(), levelAfter: progress.level, sessionID: state.clock.id)
         round.record(record, oldLevel: oldLevel); state.history.append(record); state.round = round; save()
     }
+    enum PINRecoveryResult: Equatable {
+        case success, invalidPIN, unavailable, cancelled, saveFailed
+        var message: String {
+            switch self {
+            case .success: "PIN reset. Enter your new PIN to unlock."
+            case .invalidPIN: "Choose matching six-digit PINs."
+            case .unavailable: "Device authentication is unavailable. Make sure a device passcode is set up in Settings, then try again."
+            case .cancelled: "PIN not changed. Device authentication was cancelled or unsuccessful."
+            case .saveFailed: "PIN could not be saved. Try again."
+            }
+        }
+    }
+    func recoverParentPIN(replacement: String, confirmation: String) async -> PINRecoveryResult {
+        guard active, parentOpen, !parentUnlocked, !recoveringPIN else { return .cancelled }
+        guard replacement == confirmation, ParentPIN.isValid(replacement) else { return .invalidPIN }
+        guard ParentPIN.hasPIN(service: pinService) else { return .saveFailed }
+        let context = authenticationContext()
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) else {
+            context.invalidate(); return .unavailable
+        }
+        let attempt = UUID()
+        recoveryID = attempt; recoveryContext = context; recoveringPIN = true
+        defer {
+            context.invalidate()
+            if recoveryID == attempt { recoveryID = nil; recoveryContext = nil; recoveringPIN = false }
+        }
+        // Keep LAContext on the main actor. Only the Boolean result crosses
+        // from the system callback; older Swift 6 SDKs don't mark LAContext Sendable.
+        let authenticated = await withCheckedContinuation { continuation in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Reset your Curiosity Garden parent PIN.") { success, _ in
+                continuation.resume(returning: success)
+            }
+        }
+        // A late reply after closing or backgrounding must never replace the PIN.
+        guard authenticated, !Task.isCancelled, recoveryID == attempt, parentOpen else { return .cancelled }
+        guard ParentPIN.create(replacement, service: pinService) else { return .saveFailed }
+        parentUnlocked = false
+        return .success
+    }
+    func closeParent() {
+        recoveryID = nil; recoveryContext?.invalidate(); recoveryContext = nil; recoveringPIN = false
+        parentUnlocked = false; parentOpen = false; tick()
+    }
     func lifecycle(_ phase: ScenePhase) {
         active = phase == .active
-        if !active { parentUnlocked = false; parentOpen = false }
+        if !active {
+            parentUnlocked = false
+            // The system authentication prompt can temporarily make the app inactive.
+            // Keep only the locked recovery form; backgrounding always cancels it.
+            if phase == .background || !recoveringPIN { closeParent() }
+        }
         tick()
     }
 }

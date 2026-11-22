@@ -20,5 +20,6 @@ Before a device release, verify:
 - iPhone/iPad portrait, landscape, window sizes, largest text, complete answer controls, contrast, and VoiceOver.
 - Session limits across rounds, backgrounding, relaunch and restart; the full 30-minute break; clock changes and grade changes.
 - Keychain persistence/cooldown, 90-day retention, and graceful failure for corrupt or unwritable storage.
+- Forgotten-PIN recovery with real Face ID/Touch ID and passcode fallback; cancellation, no device passcode, backgrounding, and relaunch. Verify reports remain locked and learning/session limits/breaks survive. Unit tests substitute system authentication replies.
 
 Use synthetic data. Automated tests do not replace these device checks or content validation. Draft questions remain ineligible for Release.

@@ -64,7 +64,7 @@ struct GardenView: View {
                 } else { standardContent }
             }.background(Palette.cream).foregroundStyle(Palette.ink)
                 .toolbar { ToolbarItem(placement: .topBarTrailing) { Button("Parents", systemImage: "lock") { store.parentOpen = true; store.tick() } } }
-                .sheet(isPresented: $store.parentOpen, onDismiss: { store.parentUnlocked = false; store.tick() }) { ParentView() }
+                .sheet(isPresented: $store.parentOpen, onDismiss: { store.closeParent() }) { ParentView() }
         }.tint(Palette.green).preferredColorScheme(.light)
             .onReceive(pulse) { _ in store.tick() }
             .onChange(of: phase) { _, value in store.lifecycle(value) }
@@ -198,7 +198,7 @@ struct SetupView: View {
             if ParentPIN.exists { Text("Enter the existing device parent PIN.") }
             SecureField("Six-digit parent PIN", text: $pin).keyboardType(.numberPad).textContentType(.newPassword)
             if !ParentPIN.exists { SecureField("Confirm PIN", text: $confirmation).keyboardType(.numberPad) }
-            Text("Keep your PIN safe. There is no bypass or online recovery. See the family-build guide for device-data reset instructions.").readingText(.note)
+            Text("Keep your PIN private. If you forget it, use device authentication in Parents to set a new one.").readingText(.note)
             Button("Save and begin") {
                 let okay = ParentPIN.exists ? ParentPIN.verify(pin) : (pin == confirmation && ParentPIN.create(pin))
                 if okay { store.setup(grade: grade); pin = ""; confirmation = "" }
@@ -219,14 +219,15 @@ struct ParentView: View {
     @State private var newPIN = ""
     @State private var confirmPIN = ""
     @State private var pinMessage = ""
+    @State private var forgotPIN = false
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    if store.parentUnlocked { report } else { gate }
+                    if store.parentUnlocked { report } else if forgotPIN { recovery } else { gate }
                 }.padding(24).frame(maxWidth: 700).font(.title3)
             }.navigationTitle("Parents").toolbar {
-                Button("Lock and close") { store.parentUnlocked = false; dismiss() }
+                Button("Lock and close") { store.closeParent(); dismiss() }
             }
         }
     }
@@ -239,8 +240,29 @@ struct ParentView: View {
                 pin = ""
                 message = store.parentUnlocked ? "" : "PIN not accepted. After five failed attempts, wait five minutes."
             }
+            if ParentPIN.exists {
+                Button("Forgot PIN?") { pin = ""; message = ""; forgotPIN = true }
+            }
             Text(message)
         }
+    }
+    private var recovery: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Reset parent PIN").font(.title)
+            Text("Use Face ID, Touch ID, or this device's passcode. Anyone able to unlock this device can reset the parent PIN.")
+            Text("Learning progress, session limits, and breaks are preserved.").font(.footnote)
+            SecureField("New six-digit PIN", text: $newPIN).keyboardType(.numberPad).textContentType(.newPassword)
+            SecureField("Confirm new PIN", text: $confirmPIN).keyboardType(.numberPad).textContentType(.newPassword)
+            Button(store.recoveringPIN ? "Authenticating…" : "Verify device and reset PIN") {
+                Task {
+                    let result = await store.recoverParentPIN(replacement: newPIN, confirmation: confirmPIN)
+                    newPIN = ""; confirmPIN = ""; message = result.message
+                    if result == .success { forgotPIN = false }
+                }
+            }.buttonStyle(.borderedProminent).disabled(store.recoveringPIN)
+            Button("Back to PIN entry") { newPIN = ""; confirmPIN = ""; message = ""; forgotPIN = false }
+            Text(message)
+        }.textFieldStyle(.roundedBorder).disabled(store.recoveringPIN)
     }
     private var report: some View {
         VStack(alignment: .leading, spacing: 20) {
