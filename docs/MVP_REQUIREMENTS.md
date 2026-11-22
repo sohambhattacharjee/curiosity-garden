@@ -8,7 +8,7 @@ This document records product decisions from the requirements interview. It desc
 - Support both iPhone and iPad, with large, readable text and easy-to-tap answer choices.
 - The first installed version is for the owner's family.
 - Public, open-source GitHub project named `curiosity-garden`, licensed under MIT.
-- Official App Store distribution can coexist with the open-source project. Whether it belongs in the initial release is an open decision.
+- Prepare for official App Store publication after family testing and refinement. Public publication is outside the initial family MVP.
 - The experience should support healthy stopping rather than encourage prolonged or compulsive play.
 
 ## Setup and parent access
