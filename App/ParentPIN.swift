@@ -3,7 +3,7 @@ import CommonCrypto
 import Security
 
 enum ParentPIN {
-    private static let service = "org.curiositygarden.parent-pin"
+    static let service = "org.curiositygarden.parent-pin"
     private struct Credential: Codable { var salt: Data; var digest: Data; var failures: Int = 0; var lockedUntil: Date? }
     private static func query(service: String) -> [String: Any] { [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: service, kSecAttrAccount as String: "parent"] }
     private static func read(service: String) -> Credential? {
@@ -30,21 +30,22 @@ enum ParentPIN {
         guard updated == errSecItemNotFound else { return false }
         return SecItemAdd(query(service: service).merging(attributes) { _, new in new } as CFDictionary, nil) == errSecSuccess
     }
+    static func isValid(_ pin: String) -> Bool { pin.count == 6 && pin.allSatisfy({ $0.isASCII && $0.isNumber }) }
     static func create(_ pin: String, service: String = service) -> Bool {
-        guard pin.count == 6, pin.allSatisfy({ $0.isASCII && $0.isNumber }) else { return false }
+        guard isValid(pin) else { return false }
         var bytes = [UInt8](repeating: 0, count: 16)
         guard SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes) == errSecSuccess else { return false }
         let salt = Data(bytes)
         return write(Credential(salt: salt, digest: derive(pin, salt: salt)), service: service)
     }
     static func change(current: String, replacement: String, confirmation: String, service: String = service, now: Date = Date()) -> Bool {
-        guard replacement == confirmation, replacement.count == 6, replacement.allSatisfy({ $0.isASCII && $0.isNumber }),
+        guard replacement == confirmation, isValid(replacement),
               verify(current, service: service, now: now) else { return false }
         return create(replacement, service: service)
     }
     static func verify(_ pin: String, service: String = service, now: Date = Date()) -> Bool {
         guard var credential = read(service: service), credential.lockedUntil.map({ $0 <= now }) ?? true else { return false }
-        guard pin.count == 6, pin.allSatisfy({ $0.isASCII && $0.isNumber }), credential.salt.count == 16, credential.digest.count == 32 else { return false }
+        guard isValid(pin), credential.salt.count == 16, credential.digest.count == 32 else { return false }
         let digest = derive(pin, salt: credential.salt)
         let matches = zip(digest, credential.digest).reduce(UInt8(0)) { $0 | ($1.0 ^ $1.1) } == 0
         if matches { credential.failures = 0; credential.lockedUntil = nil }

@@ -17,6 +17,7 @@ This document records product decisions from the requirements interview. It desc
 - One child profile per device.
 - A parent chooses the starting grade during setup.
 - A separate, parent-created PIN protects grade changes, settings, and reports.
+- A forgotten PIN can be replaced after device authentication (Face ID, Touch ID, or device passcode). Anyone able to unlock the device can use recovery. Require matching six-digit replacements, preserve progress and session limits/breaks, and keep reports locked until the new PIN is entered.
 - Parent reports are outside the child's play experience.
 - The selected grade determines the session cap, round maximum, and reading expectations. Subject difficulty can evolve separately.
 
