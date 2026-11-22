@@ -1,6 +1,6 @@
 # Content review and release gate
 
-`App/questions.json` contains 96 original **draft development fixtures**, not a reviewed bank or validated K–5 curriculum. Difficulty and reading grades are provisional; all currently have a permissive reading-grade placeholder. Some early readers need adult assistance. Do not claim that running fixtures establishes educational quality.
+`App/questions.json` contains **1,440 original AI-assisted drafts**, not a reviewed bank or validated K–5 curriculum. There are 40 questions per subject at each of six content difficulty levels. Each cell has ten related skill/topic families with four exercises per family. Difficulty and reading grades are provisional editorial targets, not measured reading scores. A K reading target means a short shared-reading candidate, and adult help may still be needed. Do not claim that passing automated checks establishes factual or educational quality.
 
 Debug builds display a persistent draft banner and may use drafts. Release builds select only `reviewed` items with a nonempty reviewer and review date. With no eligible reviewed content, play ends with an explicit content-unavailable message. There is no UI toggle to unlock drafts in Release.
 
@@ -8,4 +8,6 @@ For each question contribution, supply a stable ID, subject, content level, read
 
 Corrections use the content issue template and a pull request. Keep IDs stable when correcting wording; use a new ID for a materially different question. Report history snapshots preserve the wording and review status seen when answered. No third-party content is bundled; retain required notices if that changes. A family-ready Release requires enough reviewed material at every subject, content level, and reading ceiling to support mixed rounds and later reviews.
 
-The owner will review the bank in its dedicated content PR. Use the [pending review worksheet](QUESTION_BANK_REVIEW.md); the current questions remain placeholders until individually approved.
+The owner will review the bank in its dedicated content PR. Use the [36 review packets and review criteria](QUESTION_BANK_REVIEW.md) and [reference register/topic map](QUESTION_BANK_SOURCES.md). No reviewer identity or review date has been invented. The original 96 placeholder IDs are retired rather than reassigned to new questions; saved answer snapshots retain their original content. Only actual human review can promote a draft to reviewed.
+
+`python3 scripts/check_question_bank.py` enforces subject/level capacity, short-language candidate coverage, unique IDs/prompts, valid choices/keys, length bounds, reference URLs, and review metadata. Literal numeric arithmetic and rounding keys are recomputed independently using exact fractions. The audit is part of the required Core tests CI check. Its eight-candidate floor at the earliest reading ceiling is a structural adaptation safeguard, not a reason to give an unsuitable question an inaccurate reading label. Replace or reword unsuitable items during review. Full layout, VoiceOver, ambiguity, factual, and pedagogical review remain human release checks.

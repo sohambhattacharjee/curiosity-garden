@@ -33,7 +33,7 @@ Real simulator captures using synthetic progress and **draft placeholder questio
 - One child profile per device, local progress, offline content, and no cross-device synchronization.
 - A minimal cream-and-sage interface, with readable dark text and occasional educational visuals.
 
-Question-bank review is tracked separately in its own draft PR; the app continues to use placeholders. See [technical status](docs/TECH_STATUS.md) for completed code and remaining release checks.
+The bundled bank now contains **1,440 original AI-assisted draft questions**: 40 per subject at each K–5 difficulty level. All remain unreviewed. [Review the 36 question packets](docs/QUESTION_BANK_REVIEW.md), including choices, draft keys, explanations, and primary-reference leads. Difficulty and reading targets need human review; this is not a certified curriculum. The screenshots above show earlier development placeholders. See [technical status](docs/TECH_STATUS.md) for completed code and remaining release checks.
 
 ## Project documents
 
@@ -48,10 +48,11 @@ Open `CuriosityGarden.xcodeproj` and run the shared CuriosityGarden scheme on an
 
 ```sh
 bash scripts/test_coverage.sh
+python3 scripts/check_question_bank.py
 xcodebuild -project CuriosityGarden.xcodeproj -scheme CuriosityGarden -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 ```
 
-See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI requires 95% unit-test line coverage overall and for every production logic file, plus Debug/Release iOS compilation, on every push and pull request. The declarative SwiftUI view file is checked through UI validation rather than unit coverage. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
+See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI requires 95% unit-test line coverage overall and for every production logic file, the question-bank audit, and Debug/Release iOS compilation on every push and pull request. The declarative SwiftUI view file is checked through UI validation rather than unit coverage. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
 
 ## Adapting and publishing
 

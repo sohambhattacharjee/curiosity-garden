@@ -1,0 +1,712 @@
+# Science — difficulty 1
+
+**40 draft items · owner review pending.** [Review criteria](../QUESTION_BANK_REVIEW.md#review-criteria) · [Source register](../QUESTION_BANK_SOURCES.md). Reading targets and difficulty are provisional. Keys are authoring drafts, not approved answers.
+
+## cg-v1-science-1-001
+
+**Draft** · Topic: light transmission · Proposed reading target: K
+
+Why can you see a toy through clear glass?
+
+- **A.** It lets light pass through.
+- **B.** It blocks all light.
+- **C.** It creates the toy.
+
+**Draft key: A — It lets light pass through.**
+
+Transparent materials allow light to pass through.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-002
+
+**Draft** · Topic: sound vibration · Proposed reading target: K
+
+What is moving back and forth as a plucked string makes sound?
+
+- **A.** only its shadow
+- **B.** a drawing of it
+- **C.** part of the object
+
+**Draft key: C — part of the object**
+
+Vibrating objects can make sound.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-003
+
+**Draft** · Topic: light and seeing · Proposed reading target: K
+
+In a dark room, what helps you read a book?
+
+- **A.** covering your eyes
+- **B.** light reaching the object and your eyes
+- **C.** turning off every light
+
+**Draft key: B — light reaching the object and your eyes**
+
+We see objects when light from them reaches our eyes.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-004
+
+**Draft** · Topic: objects in the sky · Proposed reading target: 1
+
+What kind of object is the Sun?
+
+- **A.** a planet
+- **B.** a star
+
+**Draft key: B — a star**
+
+Our solar system contains different kinds of objects.
+
+[Primary reference lead](https://science.nasa.gov/kids/solar-system/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-005
+
+**Draft** · Topic: shadows · Proposed reading target: K
+
+Why can a book make a shadow?
+
+- **A.** It makes all the air black.
+- **B.** It pulls light into the ground.
+- **C.** It blocks light from reaching a surface.
+
+**Draft key: C — It blocks light from reaching a surface.**
+
+An opaque object can block light and make a shadow.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-006
+
+**Draft** · Topic: choosing tools · Proposed reading target: 1
+
+Which tool helps us measure a table length?
+
+- **A.** a ruler
+- **B.** a cup
+
+**Draft key: A — a ruler**
+
+Choose a tool suited to the property being measured.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-007
+
+**Draft** · Topic: weather evidence · Proposed reading target: 1
+
+A flag blows straight out. What does the evidence show?
+
+- **A.** There is wind.
+- **B.** Tomorrow must be hot.
+- **C.** Next month will have no rain.
+
+**Draft key: A — There is wind.**
+
+An observation supports a limited claim about present or past weather.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-008
+
+**Draft** · Topic: day and night patterns · Proposed reading target: 1
+
+After a clear dawn, will the Sun stay above your horizon forever?
+
+- **A.** No, Earth keeps turning.
+- **B.** Yes, Earth stops turning.
+
+**Draft key: A — No, Earth keeps turning.**
+
+Earth turning makes day and night at a place.
+
+[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-009
+
+**Draft** · Topic: using records · Proposed reading target: K
+
+We count 2 cloudy days, then 5 sunny days. Which did we record more often?
+
+- **A.** cloudy days
+- **B.** sunny days
+- **C.** the same number
+
+**Draft key: B — sunny days**
+
+Compare the counts in the record.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-010
+
+**Draft** · Topic: engineering materials · Proposed reading target: K
+
+A roof should keep rain out. Which material fits best?
+
+- **A.** paper with large holes
+- **B.** open net
+- **C.** waterproof sheet
+
+**Draft key: C — waterproof sheet**
+
+The chosen property should match the design need.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-011
+
+**Draft** · Topic: light transmission · Proposed reading target: K
+
+Why can you see a toy through clear plastic?
+
+- **A.** It blocks all light.
+- **B.** It lets light pass through.
+- **C.** It creates the toy.
+
+**Draft key: B — It lets light pass through.**
+
+Transparent materials allow light to pass through.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-012
+
+**Draft** · Topic: sound vibration · Proposed reading target: K
+
+What is moving back and forth as a ringing bell makes sound?
+
+- **A.** part of the object
+- **B.** only its shadow
+- **C.** a drawing of it
+
+**Draft key: A — part of the object**
+
+Vibrating objects can make sound.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-013
+
+**Draft** · Topic: light and seeing · Proposed reading target: K
+
+In a dark room, what helps you see a cup?
+
+- **A.** covering your eyes
+- **B.** turning off every light
+- **C.** light reaching the object and your eyes
+
+**Draft key: C — light reaching the object and your eyes**
+
+We see objects when light from them reaches our eyes.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-014
+
+**Draft** · Topic: objects in the sky · Proposed reading target: 1
+
+What kind of object is Earth?
+
+- **A.** a star
+- **B.** a planet
+
+**Draft key: B — a planet**
+
+Our solar system contains different kinds of objects.
+
+[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-015
+
+**Draft** · Topic: shadows · Proposed reading target: K
+
+Why can a hand make a shadow?
+
+- **A.** It blocks light from reaching a surface.
+- **B.** It makes all the air black.
+- **C.** It pulls light into the ground.
+
+**Draft key: A — It blocks light from reaching a surface.**
+
+An opaque object can block light and make a shadow.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-016
+
+**Draft** · Topic: choosing tools · Proposed reading target: 1
+
+Which tool helps us compare how warm water is?
+
+- **A.** a thermometer
+- **B.** a ruler
+
+**Draft key: A — a thermometer**
+
+Choose a tool suited to the property being measured.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-017
+
+**Draft** · Topic: weather evidence · Proposed reading target: 1
+
+Rain has filled a jar outside. What does the evidence show?
+
+- **A.** Tomorrow must be hot.
+- **B.** Some rain has fallen.
+- **C.** Next month will have no rain.
+
+**Draft key: B — Some rain has fallen.**
+
+An observation supports a limited claim about present or past weather.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-018
+
+**Draft** · Topic: day and night patterns · Proposed reading target: 1
+
+After a clear morning, will the Sun stay above your horizon forever?
+
+- **A.** Yes, Earth stops turning.
+- **B.** No, Earth keeps turning.
+
+**Draft key: B — No, Earth keeps turning.**
+
+Earth turning makes day and night at a place.
+
+[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-019
+
+**Draft** · Topic: using records · Proposed reading target: K
+
+We count 3 cloudy days, then 7 sunny days. Which did we record more often?
+
+- **A.** cloudy days
+- **B.** sunny days
+- **C.** the same number
+
+**Draft key: B — sunny days**
+
+Compare the counts in the record.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-020
+
+**Draft** · Topic: engineering materials · Proposed reading target: K
+
+A rain cover should keep rain out. Which material fits best?
+
+- **A.** waterproof sheet
+- **B.** paper with large holes
+- **C.** open net
+
+**Draft key: A — waterproof sheet**
+
+The chosen property should match the design need.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-021
+
+**Draft** · Topic: light transmission · Proposed reading target: K
+
+Why can you see a toy through clean water?
+
+- **A.** It blocks all light.
+- **B.** It creates the toy.
+- **C.** It lets light pass through.
+
+**Draft key: C — It lets light pass through.**
+
+Transparent materials allow light to pass through.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-022
+
+**Draft** · Topic: sound vibration · Proposed reading target: K
+
+What is moving back and forth as a beating drum makes sound?
+
+- **A.** part of the object
+- **B.** only its shadow
+- **C.** a drawing of it
+
+**Draft key: A — part of the object**
+
+Vibrating objects can make sound.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-023
+
+**Draft** · Topic: light and seeing · Proposed reading target: K
+
+In a dark room, what helps you find a red sock?
+
+- **A.** covering your eyes
+- **B.** light reaching the object and your eyes
+- **C.** turning off every light
+
+**Draft key: B — light reaching the object and your eyes**
+
+We see objects when light from them reaches our eyes.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-024
+
+**Draft** · Topic: objects in the sky · Proposed reading target: 1
+
+What kind of object is the Moon?
+
+- **A.** a star
+- **B.** a natural satellite of Earth
+
+**Draft key: B — a natural satellite of Earth**
+
+Our solar system contains different kinds of objects.
+
+[Primary reference lead](https://science.nasa.gov/moon/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-025
+
+**Draft** · Topic: shadows · Proposed reading target: K
+
+Why can a tree trunk make a shadow?
+
+- **A.** It makes all the air black.
+- **B.** It pulls light into the ground.
+- **C.** It blocks light from reaching a surface.
+
+**Draft key: C — It blocks light from reaching a surface.**
+
+An opaque object can block light and make a shadow.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-026
+
+**Draft** · Topic: choosing tools · Proposed reading target: 1
+
+Which tool helps us see a small leaf detail?
+
+- **A.** a magnifying glass
+- **B.** a rain gauge
+
+**Draft key: A — a magnifying glass**
+
+Choose a tool suited to the property being measured.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-027
+
+**Draft** · Topic: weather evidence · Proposed reading target: 1
+
+The thermometer reading rises. What does the evidence show?
+
+- **A.** Tomorrow must be hot.
+- **B.** Next month will have no rain.
+- **C.** The measured temperature rises.
+
+**Draft key: C — The measured temperature rises.**
+
+An observation supports a limited claim about present or past weather.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-028
+
+**Draft** · Topic: day and night patterns · Proposed reading target: 1
+
+After a clear noon, will the Sun stay above your horizon forever?
+
+- **A.** Yes, Earth stops turning.
+- **B.** No, Earth keeps turning.
+
+**Draft key: B — No, Earth keeps turning.**
+
+Earth turning makes day and night at a place.
+
+[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-029
+
+**Draft** · Topic: using records · Proposed reading target: K
+
+We count 4 cloudy days, then 8 sunny days. Which did we record more often?
+
+- **A.** sunny days
+- **B.** cloudy days
+- **C.** the same number
+
+**Draft key: A — sunny days**
+
+Compare the counts in the record.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-030
+
+**Draft** · Topic: engineering materials · Proposed reading target: K
+
+An umbrella cover should keep rain out. Which material fits best?
+
+- **A.** paper with large holes
+- **B.** waterproof sheet
+- **C.** open net
+
+**Draft key: B — waterproof sheet**
+
+The chosen property should match the design need.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-031
+
+**Draft** · Topic: light transmission · Proposed reading target: K
+
+Why can you see a toy through a clear window?
+
+- **A.** It blocks all light.
+- **B.** It lets light pass through.
+- **C.** It creates the toy.
+
+**Draft key: B — It lets light pass through.**
+
+Transparent materials allow light to pass through.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-032
+
+**Draft** · Topic: sound vibration · Proposed reading target: K
+
+What is moving back and forth as a humming speaker makes sound?
+
+- **A.** part of the object
+- **B.** only its shadow
+- **C.** a drawing of it
+
+**Draft key: A — part of the object**
+
+Vibrating objects can make sound.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-033
+
+**Draft** · Topic: light and seeing · Proposed reading target: K
+
+In a dark room, what helps you look at a picture?
+
+- **A.** covering your eyes
+- **B.** turning off every light
+- **C.** light reaching the object and your eyes
+
+**Draft key: C — light reaching the object and your eyes**
+
+We see objects when light from them reaches our eyes.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-034
+
+**Draft** · Topic: objects in the sky · Proposed reading target: 1
+
+What kind of object is Mars?
+
+- **A.** a planet
+- **B.** a moon of Earth
+
+**Draft key: A — a planet**
+
+Our solar system contains different kinds of objects.
+
+[Primary reference lead](https://science.nasa.gov/kids/solar-system/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-035
+
+**Draft** · Topic: shadows · Proposed reading target: K
+
+Why can a cardboard shape make a shadow?
+
+- **A.** It makes all the air black.
+- **B.** It pulls light into the ground.
+- **C.** It blocks light from reaching a surface.
+
+**Draft key: C — It blocks light from reaching a surface.**
+
+An opaque object can block light and make a shadow.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-036
+
+**Draft** · Topic: choosing tools · Proposed reading target: 1
+
+Which tool helps us measure rain collected?
+
+- **A.** a clock
+- **B.** a rain gauge
+
+**Draft key: B — a rain gauge**
+
+Choose a tool suited to the property being measured.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-037
+
+**Draft** · Topic: weather evidence · Proposed reading target: 1
+
+Clouds cover most of the sky. What does the evidence show?
+
+- **A.** Tomorrow must be hot.
+- **B.** The sky is cloudy.
+- **C.** Next month will have no rain.
+
+**Draft key: B — The sky is cloudy.**
+
+An observation supports a limited claim about present or past weather.
+
+[Primary reference lead](https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-038
+
+**Draft** · Topic: day and night patterns · Proposed reading target: 1
+
+After a clear afternoon, will the Sun stay above your horizon forever?
+
+- **A.** No, Earth keeps turning.
+- **B.** Yes, Earth stops turning.
+
+**Draft key: A — No, Earth keeps turning.**
+
+Earth turning makes day and night at a place.
+
+[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-039
+
+**Draft** · Topic: using records · Proposed reading target: K
+
+We count 1 cloudy days, then 6 sunny days. Which did we record more often?
+
+- **A.** sunny days
+- **B.** cloudy days
+- **C.** the same number
+
+**Draft key: A — sunny days**
+
+Compare the counts in the record.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+
+## cg-v1-science-1-040
+
+**Draft** · Topic: engineering materials · Proposed reading target: K
+
+A shelter top should keep rain out. Which material fits best?
+
+- **A.** paper with large holes
+- **B.** waterproof sheet
+- **C.** open net
+
+**Draft key: B — waterproof sheet**
+
+The chosen property should match the design need.
+
+[Primary reference lead](https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf) · Original AI-assisted project wording, MIT.
+
+- [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
+

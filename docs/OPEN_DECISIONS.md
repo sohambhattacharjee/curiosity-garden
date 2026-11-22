@@ -10,8 +10,8 @@ These details are not yet approved product requirements. Resolve them through th
 ## Learning and content
 
 - Exact subject and category taxonomy, and how to enforce the even school/general-knowledge mix.
-- Question-bank size and coverage across subjects, content difficulty, and selected-grade reading needs.
-- Original question authorship, fact sources, review ownership, and correction workflow. No completed bank is present yet.
+- The owner approved an initial batch of 1,440 drafts: 40 per subject at each K–5 difficulty level. Final reviewed-bank coverage across subjects, content difficulty, and selected-grade reading needs still requires content review.
+- Original AI-assisted question wording is MIT licensed, and Soham Bhattacharjee will review it. Primary-reference leads and the correction/review workflow are in CONTENT_REVIEW.md and QUESTION_BANK_REVIEW.md. The authored bank remains entirely draft; factual, difficulty, readability, and accessibility approval is outstanding.
 - Difficulty steps within and between grades; handling the lowest and highest available questions.
 - How “difficulty calibration” is measured and when it extends or ends a round, while preserving the ten-correct promotion rule.
 - Repetition avoidance and the exact timing and frequency of missed-question review in later sessions.
