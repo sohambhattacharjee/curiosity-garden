@@ -111,6 +111,42 @@ final class GardenAppLogicTests: XCTestCase {
         restored.lifecycle(.background); time.advance(500); restored.tick()
         XCTAssertEqual(restored.reportSeconds(.week), 120)
     }
+    @MainActor func testDraftNoticeFollowsEligibleContentRatherThanDebugConfiguration() async throws {
+        let draft = Question(id: "draft-notice", subject: .math, level: 0, readingGrade: 0,
+                             prompt: "One plus one?", choices: ["Two", "Three"], correct: 0,
+                             explanation: "One and one make two.", source: "Original test fixture")
+        var reviewed = draft; reviewed.id = "approved-notice"; reviewed.status = .reviewed
+        reviewed.reviewer = "Test fixture reviewer"; reviewed.reviewedAt = Date(timeIntervalSince1970: 2_000_000)
+        var invalid = draft; invalid.choices = []
+        for allowsDrafts in [true, false] {
+            for questions in [[], [reviewed], [draft], [reviewed, draft], [reviewed, invalid]] {
+                let (store, _, _) = try makeStore(bank: questions, allowsDrafts: allowsDrafts)
+                let reviewedCount = questions.contains(where: { $0.id == reviewed.id }) ? 1 : 0
+                let draftCount = questions.contains(where: { $0.id == draft.id && !$0.choices.isEmpty }) ? 1 : 0
+                XCTAssertEqual(store.reviewedQuestionCount, reviewedCount)
+                XCTAssertEqual(store.draftQuestionCount, draftCount)
+                XCTAssertEqual(store.hasDraftContent, allowsDrafts && draftCount > 0)
+            }
+        }
+    }
+    @MainActor func testApprovedBankUpgradeRestartsStaleDraftRoundWithoutLosingLearningOrTime() async throws {
+        let draft = Question(id: "approved-upgrade", subject: .math, level: 0, readingGrade: 0,
+                             prompt: "One plus one?", choices: ["Two", "Three"], correct: 0,
+                             explanation: "One and one make two.", source: "Original test fixture")
+        let (old, url, time) = try makeStore(bank: [draft])
+        old.setup(grade: 0); old.start(); time.advance(120); old.answer(.unsure)
+        XCTAssertNotNil(old.state.round); XCTAssertEqual(old.state.clock.used, 120)
+        var approved = draft; approved.status = .reviewed
+        approved.reviewer = "Test fixture reviewer"; approved.reviewedAt = time.date
+        let restored = GardenStore(url: url, bank: [approved], allowsDrafts: true, now: { time.date }, uptime: { time.uptime })
+        XCTAssertNil(restored.state.round); XCTAssertFalse(restored.hasDraftContent)
+        XCTAssertEqual(restored.state.history.count, 1)
+        XCTAssertEqual(restored.state.history.first?.question.status, .draft)
+        XCTAssertEqual(restored.state.progress[.math]?.level, old.state.progress[.math]?.level)
+        XCTAssertEqual(restored.state.clock.used, 120); XCTAssertEqual(restored.state.grade, 0)
+        restored.start()
+        XCTAssertEqual(restored.state.round?.pending?.status, .reviewed)
+    }
     func testChangingPINRequiresCurrentPINAndMatchingReplacement() throws {
         try withKeychain { service in
             XCTAssertTrue(ParentPIN.create("314159", service: service))

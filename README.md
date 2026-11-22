@@ -21,13 +21,13 @@ For a physical device, select your signing team and a unique bundle identifier. 
 
 ## Questions
 
-`App/questions.json` bundles **1,440 AI-assisted draft questions**: 40 per subject at each K–5 difficulty level. Each contains choices, a key, an explanation, and source references. Difficulty and reading targets are provisional; early readers may need adult help.
+`App/questions.json` bundles **1,440 AI-assisted questions**: 40 per subject at each K–5 difficulty level. Each contains choices, a key, an explanation, and source references. Early readers may need adult help.
 
-Debug runs this bank offline with a draft banner. Release accepts only questions with completed review metadata; this bank currently has no reviewed questions. See [question format](docs/CONTENT_REVIEW.md).
+The approved bank works offline in Debug and Release. See [question format](docs/CONTENT_REVIEW.md).
 
 ## Screenshots
 
-Synthetic progress with earlier draft fixtures.
+Earlier development builds with synthetic progress.
 
 <img src="docs/screenshots/iphone-reading-maximum.png" width="260" alt="iPhone question, choices, explanation, I'm not sure, and Next" />
 
