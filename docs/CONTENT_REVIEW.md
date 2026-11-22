@@ -1,9 +1,13 @@
-# Content review and release gate
+# Question format
 
-`App/questions.json` contains 96 original **draft development fixtures**, not a reviewed bank or validated K–5 curriculum. Difficulty and reading grades are provisional; all currently have a permissive reading-grade placeholder. Some early readers need adult assistance. Do not claim that running fixtures establishes educational quality.
+The offline bank is `App/questions.json`. Questions have:
 
-Debug builds display a persistent draft banner and may use drafts. Release builds select only `reviewed` items with a nonempty reviewer and review date. With no eligible reviewed content, play ends with an explicit content-unavailable message. There is no UI toggle to unlock drafts in Release.
+- A stable `id`, `subject`, content `level` (0–5), and `readingGrade` (0–5).
+- A `prompt`, 2–4 distinct `choices`, a zero-based `correct` index, and a short `explanation`.
+- `source` references/provenance and `status`: `draft` or `reviewed`.
 
-For each question contribution, supply a stable ID, subject, content level, reading grade, 2–4 unique choices, one correct index, short explanation, factual sources, and licensing provenance. Keep status `draft` through authoring and correction. A human content reviewer should check facts against reliable primary references, ambiguity, selected-grade readability, inclusive wording, distractors, and accessibility. Record reviewer identity and ISO-8601 review date (JSON dates currently encode as seconds since 2001-01-01, matching Foundation Codable); update the source field with actual references and provenance before setting `reviewed`. Never self-label unreviewed AI-assisted text as reviewed.
+Debug accepts drafts. Release requires `reviewed`, a nonempty `reviewer`, and `reviewedAt`. These fields describe a completed review; drafts leave review metadata unset. JSON dates use seconds since 2001-01-01 UTC, matching Foundation Codable.
 
-Corrections use the content issue template and a pull request. Keep IDs stable when correcting wording; use a new ID for a materially different question. Report history snapshots preserve the wording and review status seen when answered. No third-party content is bundled; retain required notices if that changes. A family-ready Release requires enough reviewed material at every subject, content level, and reading ceiling to support mixed rounds and later reviews.
+Run `python3 scripts/check_question_bank.py` after content changes. It checks structure, keys, references, and subject/difficulty/reading-ceiling capacity. It does not establish factual accuracy or reading suitability.
+
+Keep IDs for wording corrections; assign a new ID to a materially different question. Saved history preserves the question originally shown. Retain applicable licensing notices for contributed content.

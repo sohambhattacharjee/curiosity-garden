@@ -6,11 +6,10 @@ This document records product decisions from the requirements interview. It desc
 
 - An educational trivia game for children in kindergarten through grade 5.
 - Support both iPhone and iPad, with large, readable text and easy-to-tap answer choices.
-- Maintainer builds are for the owner's family, with no monetization.
+- Maintainer builds are for family use, with no monetization.
 - Public, open-source GitHub project named `curiosity-garden`, licensed under MIT.
 - No maintainer App Store release is planned.
 - Others may adapt and publish their own versions under MIT, including on the App Store.
-- Acknowledgment, a repository link, and a GitHub star are friendly, optional requests. They add no license conditions.
 - The experience should support healthy stopping rather than encourage prolonged or compulsive play.
 
 ## Setup and parent access

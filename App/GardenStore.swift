@@ -31,7 +31,7 @@ import Darwin
             self.bank = decoded
         } else { self.bank = [] }
         do { state = try JSONDecoder().decode(GardenState.self, from: Data(contentsOf: self.url)) }
-        catch { if FileManager.default.fileExists(atPath: self.url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Contact the family build owner." } }
+        catch { if FileManager.default.fileExists(atPath: self.url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit." } }
         state.prune(now: now())
         state.validateResumedContent(allowDrafts: self.allowsDrafts)
         recap = state.round?.needsRecap ?? false
