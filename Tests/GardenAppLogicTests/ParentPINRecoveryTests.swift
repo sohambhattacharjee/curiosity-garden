@@ -99,6 +99,20 @@ private final class AuthenticationContextStub: LAContext, @unchecked Sendable {
         time.advance(1799); restored.tick(); XCTAssertTrue(restored.blocked)
         time.advance(1); restored.tick(); XCTAssertFalse(restored.blocked)
     }
+    func testSuccessfulRecoveryRelocksReportsAfterAnUnlockWhileAuthenticationWasPending() async throws {
+        let context = AuthenticationContextStub(); context.immediateReply = nil
+        let (store, service, _, _) = try makeStore(context: context)
+        let task = await beginRecovery(store, context: context)
+        // iPad windows share the store. A PIN unlock in another window can
+        // change this flag while the system authentication reply is pending.
+        store.parentUnlocked = true
+        context.complete(true)
+        let result = await task.value
+        XCTAssertEqual(result, .success)
+        XCTAssertFalse(store.parentUnlocked, "Reset must require the new PIN even after an intervening unlock")
+        XCTAssertFalse(ParentPIN.verify("314159", service: service))
+        XCTAssertTrue(ParentPIN.verify("271828", service: service))
+    }
     func testInvalidReplacementNeverStartsDeviceAuthentication() async throws {
         let context = AuthenticationContextStub()
         let (store, service, _, _) = try makeStore(context: context)

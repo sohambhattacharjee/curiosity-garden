@@ -149,7 +149,9 @@ import LocalAuthentication
         }
         // A late reply after closing or backgrounding must never replace the PIN.
         guard authenticated, !Task.isCancelled, recoveryID == attempt, parentOpen else { return .cancelled }
-        return ParentPIN.create(replacement, service: pinService) ? .success : .saveFailed
+        guard ParentPIN.create(replacement, service: pinService) else { return .saveFailed }
+        parentUnlocked = false
+        return .success
     }
     func closeParent() {
         recoveryID = nil; recoveryContext?.invalidate(); recoveryContext = nil; recoveringPIN = false
