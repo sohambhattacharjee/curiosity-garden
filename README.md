@@ -62,7 +62,7 @@ You are welcome to adapt Curiosity Garden, build your own version, and publish i
 
 ## Acknowledgment (optional)
 
-If Curiosity Garden helps you build or publish something, we'd love a friendly acknowledgment and a link back to [this repository](https://github.com/sohambhattacharjee/curiosity-garden). A GitHub star is also appreciated if you find the project useful.
+If Curiosity Garden helps you build or publish something, I'd love a friendly acknowledgment and a link back to [this repository](https://github.com/sohambhattacharjee/curiosity-garden). A GitHub star is also appreciated if you find the project useful.
 
 These requests are entirely optional and add no license conditions. Please preserve the copyright and license notices required by MIT.
 
