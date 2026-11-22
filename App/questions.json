@@ -8141,19 +8141,20 @@
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: weather evidence. Human fact, difficulty, and reading review pending."
   },
   {
-    "id": "cg-v1-science-1-008",
+    "id": "cg-v1-science-1-041",
     "subject": "science",
     "level": 1,
     "readingGrade": 1,
-    "prompt": "After a clear dawn, will the Sun stay above your horizon forever?",
+    "prompt": "A town in Ohio has day, then night. What causes this daily change?",
     "choices": [
-      "No, Earth keeps turning.",
-      "Yes, Earth stops turning."
+      "The Sun switching off each night.",
+      "Earth turning.",
+      "The Moon making all the darkness."
     ],
-    "correct": 0,
-    "explanation": "Earth turning makes day and night at a place.",
+    "correct": 1,
+    "explanation": "As Earth turns, most places face toward and then away from sunlight.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-1-009",
@@ -8162,11 +8163,11 @@
     "readingGrade": 0,
     "prompt": "We count 2 cloudy days, then 5 sunny days. Which did we record more often?",
     "choices": [
-      "cloudy days",
       "sunny days",
+      "cloudy days",
       "the same number"
     ],
-    "correct": 1,
+    "correct": 0,
     "explanation": "Compare the counts in the record.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: using records. Human fact, difficulty, and reading review pending."
@@ -8753,16 +8754,16 @@
     "subject": "science",
     "level": 5,
     "readingGrade": 1,
-    "prompt": "Why does your school have day and night?",
+    "prompt": "Away from polar regions, why does your school usually have day and night each day?",
     "choices": [
       "Earth turns, changing which side faces the Sun.",
       "The Sun goes out each night.",
       "The Moon blocks all sunlight every night."
     ],
     "correct": 0,
-    "explanation": "Earth rotation changes which places face sunlight.",
+    "explanation": "Earth rotation changes which places face sunlight; polar day/night patterns differ.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-5-007",
@@ -9007,11 +9008,11 @@
     "readingGrade": 0,
     "prompt": "What is moving back and forth as a ringing bell makes sound?",
     "choices": [
-      "part of the object",
       "only its shadow",
+      "part of the object",
       "a drawing of it"
     ],
-    "correct": 0,
+    "correct": 1,
     "explanation": "Vibrating objects can make sound.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: sound vibration. Human fact, difficulty, and reading review pending."
@@ -9039,10 +9040,10 @@
     "readingGrade": 1,
     "prompt": "What kind of object is Earth?",
     "choices": [
-      "a star",
-      "a planet"
+      "a planet",
+      "a star"
     ],
-    "correct": 1,
+    "correct": 0,
     "explanation": "Our solar system contains different kinds of objects.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: objects in the sky. Human fact, difficulty, and reading review pending."
@@ -9070,10 +9071,10 @@
     "readingGrade": 1,
     "prompt": "Which tool helps us compare how warm water is?",
     "choices": [
-      "a thermometer",
-      "a ruler"
+      "a ruler",
+      "a thermometer"
     ],
-    "correct": 0,
+    "correct": 1,
     "explanation": "Choose a tool suited to the property being measured.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: choosing tools. Human fact, difficulty, and reading review pending."
@@ -9085,29 +9086,30 @@
     "readingGrade": 1,
     "prompt": "Rain has filled a jar outside. What does the evidence show?",
     "choices": [
-      "Tomorrow must be hot.",
       "Some rain has fallen.",
+      "Tomorrow must be hot.",
       "Next month will have no rain."
     ],
-    "correct": 1,
+    "correct": 0,
     "explanation": "An observation supports a limited claim about present or past weather.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: weather evidence. Human fact, difficulty, and reading review pending."
   },
   {
-    "id": "cg-v1-science-1-018",
+    "id": "cg-v1-science-1-042",
     "subject": "science",
     "level": 1,
     "readingGrade": 1,
-    "prompt": "After a clear morning, will the Sun stay above your horizon forever?",
+    "prompt": "At sunset, a town moves out of direct sunlight. Which motion of Earth causes this?",
     "choices": [
-      "Yes, Earth stops turning.",
-      "No, Earth keeps turning."
+      "the Moon spinning",
+      "spinning on its axis",
+      "clouds moving in every sky"
     ],
     "correct": 1,
-    "explanation": "Earth turning makes day and night at a place.",
+    "explanation": "Earth spinning carries most places into and out of direct sunlight.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-1-019",
@@ -9117,10 +9119,10 @@
     "prompt": "We count 3 cloudy days, then 7 sunny days. Which did we record more often?",
     "choices": [
       "cloudy days",
-      "sunny days",
-      "the same number"
+      "the same number",
+      "sunny days"
     ],
-    "correct": 1,
+    "correct": 2,
     "explanation": "Compare the counts in the record.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: using records. Human fact, difficulty, and reading review pending."
@@ -9707,16 +9709,16 @@
     "subject": "science",
     "level": 5,
     "readingGrade": 1,
-    "prompt": "Why does a farm have day and night?",
+    "prompt": "Away from polar regions, why does a farm usually have day and night each day?",
     "choices": [
       "The Sun goes out each night.",
       "Earth turns, changing which side faces the Sun.",
       "The Moon blocks all sunlight every night."
     ],
     "correct": 1,
-    "explanation": "Earth rotation changes which places face sunlight.",
+    "explanation": "Earth rotation changes which places face sunlight; polar day/night patterns differ.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-5-017",
@@ -9946,10 +9948,10 @@
     "prompt": "Why can you see a toy through clean water?",
     "choices": [
       "It blocks all light.",
-      "It creates the toy.",
-      "It lets light pass through."
+      "It lets light pass through.",
+      "It creates the toy."
     ],
-    "correct": 2,
+    "correct": 1,
     "explanation": "Transparent materials allow light to pass through.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: light transmission. Human fact, difficulty, and reading review pending."
@@ -9961,11 +9963,11 @@
     "readingGrade": 0,
     "prompt": "What is moving back and forth as a beating drum makes sound?",
     "choices": [
-      "part of the object",
       "only its shadow",
-      "a drawing of it"
+      "a drawing of it",
+      "part of the object"
     ],
-    "correct": 0,
+    "correct": 2,
     "explanation": "Vibrating objects can make sound.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: sound vibration. Human fact, difficulty, and reading review pending."
@@ -10039,29 +10041,30 @@
     "readingGrade": 1,
     "prompt": "The thermometer reading rises. What does the evidence show?",
     "choices": [
+      "The measured temperature rises.",
       "Tomorrow must be hot.",
-      "Next month will have no rain.",
-      "The measured temperature rises."
+      "Next month will have no rain."
     ],
-    "correct": 2,
+    "correct": 0,
     "explanation": "An observation supports a limited claim about present or past weather.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: weather evidence. Human fact, difficulty, and reading review pending."
   },
   {
-    "id": "cg-v1-science-1-028",
+    "id": "cg-v1-science-1-043",
     "subject": "science",
     "level": 1,
     "readingGrade": 1,
-    "prompt": "After a clear noon, will the Sun stay above your horizon forever?",
+    "prompt": "At noon, which side of Earth receives direct sunlight?",
     "choices": [
-      "Yes, Earth stops turning.",
-      "No, Earth keeps turning."
+      "the side facing the Sun",
+      "the side facing away from the Sun",
+      "only the North Pole"
     ],
-    "correct": 1,
-    "explanation": "Earth turning makes day and night at a place.",
+    "correct": 0,
+    "explanation": "The side facing the Sun experiences daylight.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-1-029",
@@ -10070,11 +10073,11 @@
     "readingGrade": 0,
     "prompt": "We count 4 cloudy days, then 8 sunny days. Which did we record more often?",
     "choices": [
-      "sunny days",
       "cloudy days",
+      "sunny days",
       "the same number"
     ],
-    "correct": 0,
+    "correct": 1,
     "explanation": "Compare the counts in the record.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: using records. Human fact, difficulty, and reading review pending."
@@ -10087,10 +10090,10 @@
     "prompt": "An umbrella cover should keep rain out. Which material fits best?",
     "choices": [
       "paper with large holes",
-      "waterproof sheet",
-      "open net"
+      "open net",
+      "waterproof sheet"
     ],
-    "correct": 1,
+    "correct": 2,
     "explanation": "The chosen property should match the design need.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: engineering materials. Human fact, difficulty, and reading review pending."
@@ -10661,16 +10664,16 @@
     "subject": "science",
     "level": 5,
     "readingGrade": 1,
-    "prompt": "Why does a city park have day and night?",
+    "prompt": "Away from polar regions, why does a city park usually have day and night each day?",
     "choices": [
       "The Sun goes out each night.",
       "The Moon blocks all sunlight every night.",
       "Earth turns, changing which side faces the Sun."
     ],
     "correct": 2,
-    "explanation": "Earth rotation changes which places face sunlight.",
+    "explanation": "Earth rotation changes which places face sunlight; polar day/night patterns differ.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-5-027",
@@ -10947,10 +10950,10 @@
     "readingGrade": 1,
     "prompt": "What kind of object is Mars?",
     "choices": [
-      "a planet",
-      "a moon of Earth"
+      "a moon of Earth",
+      "a planet"
     ],
-    "correct": 0,
+    "correct": 1,
     "explanation": "Our solar system contains different kinds of objects.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/kids/solar-system/ . Topic: objects in the sky. Human fact, difficulty, and reading review pending."
@@ -10978,10 +10981,10 @@
     "readingGrade": 1,
     "prompt": "Which tool helps us measure rain collected?",
     "choices": [
-      "a clock",
-      "a rain gauge"
+      "a rain gauge",
+      "a clock"
     ],
-    "correct": 1,
+    "correct": 0,
     "explanation": "Choose a tool suited to the property being measured.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: choosing tools. Human fact, difficulty, and reading review pending."
@@ -11003,19 +11006,20 @@
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-observations . Topic: weather evidence. Human fact, difficulty, and reading review pending."
   },
   {
-    "id": "cg-v1-science-1-038",
+    "id": "cg-v1-science-1-044",
     "subject": "science",
     "level": 1,
     "readingGrade": 1,
-    "prompt": "After a clear afternoon, will the Sun stay above your horizon forever?",
+    "prompt": "Near the North Pole, the Sun can stay up for many days. What does this show?",
     "choices": [
-      "No, Earth keeps turning.",
-      "Yes, Earth stops turning."
+      "Not every place has sunset each day.",
+      "Earth has stopped turning.",
+      "The Sun is a planet."
     ],
     "correct": 0,
-    "explanation": "Earth turning makes day and night at a place.",
+    "explanation": "Near the poles, daylight or darkness can last for weeks or months.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: day and night patterns. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-1-039",
@@ -11024,11 +11028,11 @@
     "readingGrade": 0,
     "prompt": "We count 1 cloudy days, then 6 sunny days. Which did we record more often?",
     "choices": [
-      "sunny days",
       "cloudy days",
-      "the same number"
+      "the same number",
+      "sunny days"
     ],
-    "correct": 0,
+    "correct": 2,
     "explanation": "Compare the counts in the record.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: using records. Human fact, difficulty, and reading review pending."
@@ -11040,11 +11044,11 @@
     "readingGrade": 0,
     "prompt": "A shelter top should keep rain out. Which material fits best?",
     "choices": [
-      "paper with large holes",
       "waterproof sheet",
+      "paper with large holes",
       "open net"
     ],
-    "correct": 1,
+    "correct": 0,
     "explanation": "The chosen property should match the design need.",
     "status": "draft",
     "source": "Original AI-assisted project draft, MIT. Reference: https://www.nextgenscience.org/sites/default/files/K-5DCI.pdf . Topic: engineering materials. Human fact, difficulty, and reading review pending."
@@ -11615,16 +11619,16 @@
     "subject": "science",
     "level": 5,
     "readingGrade": 1,
-    "prompt": "Why does a small island have day and night?",
+    "prompt": "Away from polar regions, why does a small island usually have day and night each day?",
     "choices": [
       "Earth turns, changing which side faces the Sun.",
       "The Sun goes out each night.",
       "The Moon blocks all sunlight every night."
     ],
     "correct": 0,
-    "explanation": "Earth rotation changes which places face sunlight.",
+    "explanation": "Earth rotation changes which places face sunlight; polar day/night patterns differ.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://science.nasa.gov/earth/facts/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/ . Topic: Earth rotation. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-science-5-037",
@@ -12346,16 +12350,16 @@
     "subject": "nature",
     "level": 4,
     "readingGrade": 0,
-    "prompt": "How does a rose use its sharp thorns?",
+    "prompt": "How does a rose use its sharp prickles?",
     "choices": [
       "keep some animals from eating it",
       "to walk to a new place",
       "to make animal fur"
     ],
     "correct": 0,
-    "explanation": "Plant structures can help with particular environmental challenges.",
+    "explanation": "A rose’s sharp projections are prickles, often loosely called thorns.",
     "status": "draft",
-    "source": "Original AI-assisted project draft, MIT. Reference: https://www.nps.gov/teachers/classrooms/plant-adaptations.htm . Topic: plant adaptations. Human fact, difficulty, and reading review pending."
+    "source": "Original AI-assisted project draft, MIT. Reference: https://gardens.si.edu/wp-content/uploads/2021/03/rose-modern.pdf . Topic: plant adaptations. Human fact, difficulty, and reading review pending."
   },
   {
     "id": "cg-v1-nature-4-003",

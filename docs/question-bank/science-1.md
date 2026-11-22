@@ -126,20 +126,21 @@ An observation supports a limited claim about present or past weather.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
-## cg-v1-science-1-008
+## cg-v1-science-1-041
 
 **Draft** · Topic: day and night patterns · Proposed reading target: 1
 
-After a clear dawn, will the Sun stay above your horizon forever?
+A town in Ohio has day, then night. What causes this daily change?
 
-- **A.** No, Earth keeps turning.
-- **B.** Yes, Earth stops turning.
+- **A.** The Sun switching off each night.
+- **B.** Earth turning.
+- **C.** The Moon making all the darkness.
 
-**Draft key: A — No, Earth keeps turning.**
+**Draft key: B — Earth turning.**
 
-Earth turning makes day and night at a place.
+As Earth turns, most places face toward and then away from sunlight.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -149,11 +150,11 @@ Earth turning makes day and night at a place.
 
 We count 2 cloudy days, then 5 sunny days. Which did we record more often?
 
-- **A.** cloudy days
-- **B.** sunny days
+- **A.** sunny days
+- **B.** cloudy days
 - **C.** the same number
 
-**Draft key: B — sunny days**
+**Draft key: A — sunny days**
 
 Compare the counts in the record.
 
@@ -203,11 +204,11 @@ Transparent materials allow light to pass through.
 
 What is moving back and forth as a ringing bell makes sound?
 
-- **A.** part of the object
-- **B.** only its shadow
+- **A.** only its shadow
+- **B.** part of the object
 - **C.** a drawing of it
 
-**Draft key: A — part of the object**
+**Draft key: B — part of the object**
 
 Vibrating objects can make sound.
 
@@ -239,10 +240,10 @@ We see objects when light from them reaches our eyes.
 
 What kind of object is Earth?
 
-- **A.** a star
-- **B.** a planet
+- **A.** a planet
+- **B.** a star
 
-**Draft key: B — a planet**
+**Draft key: A — a planet**
 
 Our solar system contains different kinds of objects.
 
@@ -274,10 +275,10 @@ An opaque object can block light and make a shadow.
 
 Which tool helps us compare how warm water is?
 
-- **A.** a thermometer
-- **B.** a ruler
+- **A.** a ruler
+- **B.** a thermometer
 
-**Draft key: A — a thermometer**
+**Draft key: B — a thermometer**
 
 Choose a tool suited to the property being measured.
 
@@ -291,11 +292,11 @@ Choose a tool suited to the property being measured.
 
 Rain has filled a jar outside. What does the evidence show?
 
-- **A.** Tomorrow must be hot.
-- **B.** Some rain has fallen.
+- **A.** Some rain has fallen.
+- **B.** Tomorrow must be hot.
 - **C.** Next month will have no rain.
 
-**Draft key: B — Some rain has fallen.**
+**Draft key: A — Some rain has fallen.**
 
 An observation supports a limited claim about present or past weather.
 
@@ -303,20 +304,21 @@ An observation supports a limited claim about present or past weather.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
-## cg-v1-science-1-018
+## cg-v1-science-1-042
 
 **Draft** · Topic: day and night patterns · Proposed reading target: 1
 
-After a clear morning, will the Sun stay above your horizon forever?
+At sunset, a town moves out of direct sunlight. Which motion of Earth causes this?
 
-- **A.** Yes, Earth stops turning.
-- **B.** No, Earth keeps turning.
+- **A.** the Moon spinning
+- **B.** spinning on its axis
+- **C.** clouds moving in every sky
 
-**Draft key: B — No, Earth keeps turning.**
+**Draft key: B — spinning on its axis**
 
-Earth turning makes day and night at a place.
+Earth spinning carries most places into and out of direct sunlight.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -327,10 +329,10 @@ Earth turning makes day and night at a place.
 We count 3 cloudy days, then 7 sunny days. Which did we record more often?
 
 - **A.** cloudy days
-- **B.** sunny days
-- **C.** the same number
+- **B.** the same number
+- **C.** sunny days
 
-**Draft key: B — sunny days**
+**Draft key: C — sunny days**
 
 Compare the counts in the record.
 
@@ -363,10 +365,10 @@ The chosen property should match the design need.
 Why can you see a toy through clean water?
 
 - **A.** It blocks all light.
-- **B.** It creates the toy.
-- **C.** It lets light pass through.
+- **B.** It lets light pass through.
+- **C.** It creates the toy.
 
-**Draft key: C — It lets light pass through.**
+**Draft key: B — It lets light pass through.**
 
 Transparent materials allow light to pass through.
 
@@ -380,11 +382,11 @@ Transparent materials allow light to pass through.
 
 What is moving back and forth as a beating drum makes sound?
 
-- **A.** part of the object
-- **B.** only its shadow
-- **C.** a drawing of it
+- **A.** only its shadow
+- **B.** a drawing of it
+- **C.** part of the object
 
-**Draft key: A — part of the object**
+**Draft key: C — part of the object**
 
 Vibrating objects can make sound.
 
@@ -468,11 +470,11 @@ Choose a tool suited to the property being measured.
 
 The thermometer reading rises. What does the evidence show?
 
-- **A.** Tomorrow must be hot.
-- **B.** Next month will have no rain.
-- **C.** The measured temperature rises.
+- **A.** The measured temperature rises.
+- **B.** Tomorrow must be hot.
+- **C.** Next month will have no rain.
 
-**Draft key: C — The measured temperature rises.**
+**Draft key: A — The measured temperature rises.**
 
 An observation supports a limited claim about present or past weather.
 
@@ -480,20 +482,21 @@ An observation supports a limited claim about present or past weather.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
-## cg-v1-science-1-028
+## cg-v1-science-1-043
 
 **Draft** · Topic: day and night patterns · Proposed reading target: 1
 
-After a clear noon, will the Sun stay above your horizon forever?
+At noon, which side of Earth receives direct sunlight?
 
-- **A.** Yes, Earth stops turning.
-- **B.** No, Earth keeps turning.
+- **A.** the side facing the Sun
+- **B.** the side facing away from the Sun
+- **C.** only the North Pole
 
-**Draft key: B — No, Earth keeps turning.**
+**Draft key: A — the side facing the Sun**
 
-Earth turning makes day and night at a place.
+The side facing the Sun experiences daylight.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -503,11 +506,11 @@ Earth turning makes day and night at a place.
 
 We count 4 cloudy days, then 8 sunny days. Which did we record more often?
 
-- **A.** sunny days
-- **B.** cloudy days
+- **A.** cloudy days
+- **B.** sunny days
 - **C.** the same number
 
-**Draft key: A — sunny days**
+**Draft key: B — sunny days**
 
 Compare the counts in the record.
 
@@ -522,10 +525,10 @@ Compare the counts in the record.
 An umbrella cover should keep rain out. Which material fits best?
 
 - **A.** paper with large holes
-- **B.** waterproof sheet
-- **C.** open net
+- **B.** open net
+- **C.** waterproof sheet
 
-**Draft key: B — waterproof sheet**
+**Draft key: C — waterproof sheet**
 
 The chosen property should match the design need.
 
@@ -593,10 +596,10 @@ We see objects when light from them reaches our eyes.
 
 What kind of object is Mars?
 
-- **A.** a planet
-- **B.** a moon of Earth
+- **A.** a moon of Earth
+- **B.** a planet
 
-**Draft key: A — a planet**
+**Draft key: B — a planet**
 
 Our solar system contains different kinds of objects.
 
@@ -628,10 +631,10 @@ An opaque object can block light and make a shadow.
 
 Which tool helps us measure rain collected?
 
-- **A.** a clock
-- **B.** a rain gauge
+- **A.** a rain gauge
+- **B.** a clock
 
-**Draft key: B — a rain gauge**
+**Draft key: A — a rain gauge**
 
 Choose a tool suited to the property being measured.
 
@@ -657,20 +660,21 @@ An observation supports a limited claim about present or past weather.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
-## cg-v1-science-1-038
+## cg-v1-science-1-044
 
 **Draft** · Topic: day and night patterns · Proposed reading target: 1
 
-After a clear afternoon, will the Sun stay above your horizon forever?
+Near the North Pole, the Sun can stay up for many days. What does this show?
 
-- **A.** No, Earth keeps turning.
-- **B.** Yes, Earth stops turning.
+- **A.** Not every place has sunset each day.
+- **B.** Earth has stopped turning.
+- **C.** The Sun is a planet.
 
-**Draft key: A — No, Earth keeps turning.**
+**Draft key: A — Not every place has sunset each day.**
 
-Earth turning makes day and night at a place.
+Near the poles, daylight or darkness can last for weeks or months.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -680,11 +684,11 @@ Earth turning makes day and night at a place.
 
 We count 1 cloudy days, then 6 sunny days. Which did we record more often?
 
-- **A.** sunny days
-- **B.** cloudy days
-- **C.** the same number
+- **A.** cloudy days
+- **B.** the same number
+- **C.** sunny days
 
-**Draft key: A — sunny days**
+**Draft key: C — sunny days**
 
 Compare the counts in the record.
 
@@ -698,11 +702,11 @@ Compare the counts in the record.
 
 A shelter top should keep rain out. Which material fits best?
 
-- **A.** paper with large holes
-- **B.** waterproof sheet
+- **A.** waterproof sheet
+- **B.** paper with large holes
 - **C.** open net
 
-**Draft key: B — waterproof sheet**
+**Draft key: A — waterproof sheet**
 
 The chosen property should match the design need.
 

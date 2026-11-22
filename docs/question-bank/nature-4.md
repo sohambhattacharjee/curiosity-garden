@@ -24,7 +24,7 @@ Internal structures carry out life functions.
 
 **Draft** · Topic: plant adaptations · Proposed reading target: K
 
-How does a rose use its sharp thorns?
+How does a rose use its sharp prickles?
 
 - **A.** keep some animals from eating it
 - **B.** to walk to a new place
@@ -32,9 +32,9 @@ How does a rose use its sharp thorns?
 
 **Draft key: A — keep some animals from eating it**
 
-Plant structures can help with particular environmental challenges.
+A rose’s sharp projections are prickles, often loosely called thorns.
 
-[Primary reference lead](https://www.nps.gov/teachers/classrooms/plant-adaptations.htm) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://gardens.si.edu/wp-content/uploads/2021/03/rose-modern.pdf) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 

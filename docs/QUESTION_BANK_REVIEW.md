@@ -4,6 +4,8 @@ The bank contains **1,440 original AI-assisted draft questions**: 40 in each of 
 
 Each subject/level has ten skill or topic families with four related exercises per family. These are 1,440 individual items, not 1,440 distinct curriculum objectives. Numerical and scenario variations deliberately provide practice within a skill. No copyrighted question bank, passages, or images were imported. Original wording is contributed under the repository's MIT license.
 
+The [critical author self-review](QUESTION_BANK_SELF_REVIEW.md) records corrections and the checks completed before opening human review. The question records remain draft when the GitHub PR becomes ready for review.
+
 ## Review packets
 
 Every packet contains 40 complete questions, all choices, the answer key, a short explanation, a primary-reference lead, the topic, and the proposed reading target. Each item remains **draft**. The checkboxes are review notes; changing a checkbox does not make an item Release eligible.

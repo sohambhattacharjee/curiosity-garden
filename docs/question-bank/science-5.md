@@ -98,7 +98,7 @@ Earth gravity pulls objects toward Earth’s center.
 
 **Draft** · Topic: Earth rotation · Proposed reading target: 1
 
-Why does your school have day and night?
+Away from polar regions, why does your school usually have day and night each day?
 
 - **A.** Earth turns, changing which side faces the Sun.
 - **B.** The Sun goes out each night.
@@ -106,9 +106,9 @@ Why does your school have day and night?
 
 **Draft key: A — Earth turns, changing which side faces the Sun.**
 
-Earth rotation changes which places face sunlight.
+Earth rotation changes which places face sunlight; polar day/night patterns differ.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -281,7 +281,7 @@ Earth gravity pulls objects toward Earth’s center.
 
 **Draft** · Topic: Earth rotation · Proposed reading target: 1
 
-Why does a farm have day and night?
+Away from polar regions, why does a farm usually have day and night each day?
 
 - **A.** The Sun goes out each night.
 - **B.** Earth turns, changing which side faces the Sun.
@@ -289,9 +289,9 @@ Why does a farm have day and night?
 
 **Draft key: B — Earth turns, changing which side faces the Sun.**
 
-Earth rotation changes which places face sunlight.
+Earth rotation changes which places face sunlight; polar day/night patterns differ.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -464,7 +464,7 @@ Earth gravity pulls objects toward Earth’s center.
 
 **Draft** · Topic: Earth rotation · Proposed reading target: 1
 
-Why does a city park have day and night?
+Away from polar regions, why does a city park usually have day and night each day?
 
 - **A.** The Sun goes out each night.
 - **B.** The Moon blocks all sunlight every night.
@@ -472,9 +472,9 @@ Why does a city park have day and night?
 
 **Draft key: C — Earth turns, changing which side faces the Sun.**
 
-Earth rotation changes which places face sunlight.
+Earth rotation changes which places face sunlight; polar day/night patterns differ.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 
@@ -647,7 +647,7 @@ Earth gravity pulls objects toward Earth’s center.
 
 **Draft** · Topic: Earth rotation · Proposed reading target: 1
 
-Why does a small island have day and night?
+Away from polar regions, why does a small island usually have day and night each day?
 
 - **A.** Earth turns, changing which side faces the Sun.
 - **B.** The Sun goes out each night.
@@ -655,9 +655,9 @@ Why does a small island have day and night?
 
 **Draft key: A — Earth turns, changing which side faces the Sun.**
 
-Earth rotation changes which places face sunlight.
+Earth rotation changes which places face sunlight; polar day/night patterns differ.
 
-[Primary reference lead](https://science.nasa.gov/earth/facts/) · Original AI-assisted project wording, MIT.
+[Primary reference lead](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/) · Original AI-assisted project wording, MIT.
 
 - [ ] Owner checks completed; record actual review/date and corrections before changing JSON status.
 

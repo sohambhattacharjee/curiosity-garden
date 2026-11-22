@@ -116,12 +116,58 @@ def check(questions, min_per_level=MIN_PER_LEVEL, min_early_reading=MIN_EARLY_RE
     return statuses
 
 
+def check_review_packets(questions, folder):
+    """Keep the human-facing review text faithful; leave owner notes editable."""
+    sections = {}
+    expected_ids = {q["id"] for q in questions}
+    for path in sorted(pathlib.Path(folder).glob("*.md")):
+        document = path.read_text()
+        headings = [match for match in re.finditer(r"^## ([^\n]+)\n", document, re.M)
+                    if match[1] in expected_ids or re.match(r"cg-v[0-9]+-", match[1])]
+        for index, heading in enumerate(headings):
+            qid = heading[1]
+            end = headings[index + 1].start() if index + 1 < len(headings) else len(document)
+            text = document[heading.end():end]
+            if qid in sections:
+                raise ValueError(f"Duplicate review entry: {qid}")
+            sections[qid] = (path.stem, text)
+    if set(sections) != expected_ids:
+        raise ValueError("Review packet IDs do not match the question bank")
+    for item in questions:
+        qid = item["id"]
+        packet, text = sections[qid]
+        if packet != f"{item['subject']}-{item['level']}":
+            raise ValueError(f"Review entry in wrong subject/difficulty packet: {qid}")
+        lines = text.splitlines()
+        status = item["status"].title()
+        reading = "K" if item["readingGrade"] == 0 else str(item["readingGrade"])
+        header = next((line for line in lines if line.startswith("**")), "")
+        if not header.startswith(f"**{status}**") or not header.endswith(f"Proposed reading target: {reading}"):
+            raise ValueError(f"Stale review status/reading target: {qid}")
+        if item["prompt"] not in lines or item["explanation"] not in lines:
+            raise ValueError(f"Stale review question/explanation: {qid}")
+        choices = re.findall(r"^- \*\*([A-D])\.\*\* (.*)$", text, re.M)
+        if choices != [(chr(65 + index), value) for index, value in enumerate(item["choices"])]:
+            raise ValueError(f"Stale review choices: {qid}")
+        correct = item["correct"]
+        expected = f"**{status} key: {chr(65 + correct)} — {item['choices'][correct]}**"
+        keys = [line for line in lines if re.match(r"\*\*(Draft|Reviewed) key:", line)]
+        if keys != [expected]:
+            raise ValueError(f"Stale review answer key: {qid}")
+        source_urls = set(re.findall(r"https://[^\s]+", item["source"]))
+        packet_urls = set(re.findall(r"\[Primary reference lead\]\((https://[^\s)]+)\)", text))
+        if source_urls != packet_urls:
+            raise ValueError(f"Stale review reference: {qid}")
+
+
 if __name__ == "__main__":
     bank = json.loads((ROOT / "App/questions.json").read_text())
     try:
         status = check(bank)
+        check_review_packets(bank, ROOT / "docs/question-bank")
     except ValueError as error:
         raise SystemExit(str(error)) from error
     print(f"Question bank: {len(bank)} items; {status['draft']} draft; {status['reviewed']} reviewed")
     print("All 36 subject/difficulty cells and 216 reading-ceiling combinations have structural coverage.")
+    print("Review packets match every JSON question, choice, key, explanation, reading target, status, and reference.")
     print("Human fact, ambiguity, difficulty, readability, and accessibility review is still required.")

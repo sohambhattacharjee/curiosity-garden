@@ -15,6 +15,8 @@ The references below were consulted during authoring on 2026-11-21/22. They are 
 - **earth**: [NASA Earth facts](https://science.nasa.gov/earth/facts/).
 - **moon**: [NASA Moon facts](https://science.nasa.gov/moon/facts/).
 - **space**: [NASA solar system](https://science.nasa.gov/kids/solar-system/).
+- **day-night**: [NASA day/night and polar exceptions](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth/).
+- **roses**: [Smithsonian rose prickles](https://gardens.si.edu/wp-content/uploads/2021/03/rose-modern.pdf).
 - **heat**: [DOE heat flow](https://bsesc.energy.gov/energy-basics/heat-flow).
 - **maps**: [USGS map and compass](https://www.usgs.gov/educational-resources/finding-your-way-map-and-compass).
 - **map-reading**: [Library of Congress maps](https://www.loc.gov/classroom-materials/maps-from-the-world-digital-library/).
