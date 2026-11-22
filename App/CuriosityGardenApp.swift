@@ -79,7 +79,7 @@ struct GardenView: View {
                 } icon: {
                     Image(decorative: "GardenFox").resizable().scaledToFit().frame(width: 56, height: 56)
                 }.readingText(.question).accessibilityAddTraits(.isHeader)
-                if store.allowsDrafts { Text("Draft questions · Not reviewed").font(.callout).padding().background(Palette.sage, in: RoundedRectangle(cornerRadius: 12)) }
+                if store.hasDraftContent { Text("Draft questions · Not reviewed").font(.callout).padding().background(Palette.sage, in: RoundedRectangle(cornerRadius: 12)) }
                 if let error = store.error { Text(error) }
                 else if store.state.grade == nil { SetupView() }
                 else if store.blocked {
@@ -101,11 +101,11 @@ struct GardenView: View {
     }
     private func questionScreen(_ question: Question, factor: Double, wide: Bool) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            if !wide && store.allowsDrafts { draftBadge }
+            if !wide && question.status == .draft { draftBadge }
             if wide {
                 HStack(alignment: .top, spacing: 20) {
                     VStack(alignment: .leading, spacing: 10 * factor) {
-                        if store.allowsDrafts { draftBadge }
+                        if question.status == .draft { draftBadge }
                         questionHeading(question, factor: factor)
                         questionFeedback(question, factor: factor)
                     }.frame(maxWidth: .infinity, alignment: .leading)
@@ -320,8 +320,10 @@ struct ParentView: View {
     private var contentStatus: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Question content").font(.title2.bold())
-            Text("\(store.bank.filter { $0.status == .reviewed && $0.valid }.count) reviewed · \(store.bank.filter { $0.status == .draft }.count) draft placeholders")
-            Text("Drafts are for development. The question bank is reviewed separately before a family-ready Release.").font(.footnote)
+            Text("\(store.reviewedQuestionCount) questions available offline")
+            if store.draftQuestionCount > 0 {
+                Text("\(store.draftQuestionCount) draft questions for development only").font(.footnote)
+            }
         }
     }
     private var gradeSetting: some View {

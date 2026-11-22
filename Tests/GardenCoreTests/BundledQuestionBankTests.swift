@@ -29,7 +29,7 @@ final class BundledQuestionBankTests: XCTestCase {
                 var round = Round()
                 while !round.finished(grade: grade) {
                     let question = try XCTUnwrap(QuestionPicker.pick(bank: questions, grade: grade, progress: progress,
-                        round: round, history: [], allowDrafts: true, now: now))
+                        round: round, history: [], allowDrafts: false, now: now))
                     XCTAssertEqual(question.level, level)
                     XCTAssertLessThanOrEqual(question.readingGrade, grade)
                     // Keep calibration pending to exercise the full allowed round capacity.

@@ -42,7 +42,7 @@ import LocalAuthentication
         do { state = try JSONDecoder().decode(GardenState.self, from: Data(contentsOf: self.url)) }
         catch { if FileManager.default.fileExists(atPath: self.url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit." } }
         state.prune(now: now())
-        state.validateResumedContent(allowDrafts: self.allowsDrafts)
+        state.validateResumedContent(allowDrafts: hasDraftContent)
         recap = state.round?.needsRecap ?? false
         if let grade = state.grade {
             let previous = state.clock.totalPlay
@@ -58,6 +58,9 @@ import LocalAuthentication
         return Double(mach_continuous_time()) * Double(scale.numer) / Double(scale.denom) / 1_000_000_000
     }
     var blocked: Bool { state.clock.remainingBreak(now: now(), grade: state.grade ?? 0) > 0 }
+    var reviewedQuestionCount: Int { bank.filter { $0.status == .reviewed && $0.valid }.count }
+    var draftQuestionCount: Int { bank.filter { $0.status == .draft && $0.valid }.count }
+    var hasDraftContent: Bool { allowsDrafts && draftQuestionCount > 0 }
     var wantsPlay: Bool { active && !parentOpen && state.grade != nil && error == nil }
     func save() {
         do {
