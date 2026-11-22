@@ -1,6 +1,6 @@
 # Contributing to Curiosity Garden
 
-Curiosity Garden is currently in the requirements stage. Please check the [confirmed requirements](docs/MVP_REQUIREMENTS.md) and [open decisions](docs/OPEN_DECISIONS.md) before proposing changes.
+Curiosity Garden is a native SwiftUI development preview. Please check the [confirmed requirements](docs/MVP_REQUIREMENTS.md) and [open decisions](docs/OPEN_DECISIONS.md) before proposing changes.
 
 ## Changes
 
@@ -25,7 +25,7 @@ Use fictional examples and synthetic progress records in issues, screenshots, fi
 
 ## Validation
 
-Build and test commands will be documented when the app implementation is added. For now, check documentation links and consistency with approved decisions.
+Run `swift test` and the Debug/Release iOS build commands in README. See docs/VALIDATION.md for device checks and docs/CONTENT_REVIEW.md for the human review gate. Work on a feature branch and open a pull request; do not push directly to main.
 
 ## Adapting and publishing
 

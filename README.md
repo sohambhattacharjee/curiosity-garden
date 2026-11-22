@@ -2,9 +2,20 @@
 
 A calm, offline trivia app being designed for children in kindergarten through grade 5, on iPhone and iPad.
 
-**Status: requirements and planning. There is no runnable app or reviewed question bank yet.** The project is public and open source under the MIT license. Maintainer builds are for family use, with no monetization and no maintainer App Store release planned.
+**Status: native SwiftUI development preview for iPhone and iPad (iOS/iPadOS 17+). The offline flow is implemented; the bundled questions are drafts and there is no reviewed question bank yet.** The project is public and open source under the MIT license. Maintainer builds are for family use, with no monetization and no maintainer App Store release planned.
 
-## Planned experience
+## Screenshots
+
+Captured from local Xcode simulator runs using synthetic progress. These show a **Debug development preview with draft questions**, not reviewed educational content.
+
+<table>
+<tr><th>Parent setup</th><th>Mixed round</th><th>Explanation</th></tr>
+<tr><td><img src="docs/screenshots/iphone-setup.png" width="240" alt="Parent setup with grade selector and a six-digit PIN" /></td><td><img src="docs/screenshots/iphone-question.png" width="240" alt="Math question with counting dots and three answer choices" /></td><td><img src="docs/screenshots/iphone-explanation.png" width="240" alt="Incorrect-answer explanation waiting for Next" /></td></tr>
+<tr><th>Learning recap</th><th>Parent report</th><th>iPad</th></tr>
+<tr><td><img src="docs/screenshots/iphone-recap.png" width="240" alt="Two learning facts and a calm ending without a score" /></td><td><img src="docs/screenshots/iphone-parent-report.png" width="240" alt="PIN-protected learning overview with fictional attempts" /></td><td><img src="docs/screenshots/ipad-question.png" width="320" alt="The centered question layout on iPad" /></td></tr>
+</table>
+
+## Experience
 
 - A parent selects the child's grade behind a separate parent PIN.
 - Mixed questions combine school subjects and general knowledge in an even balance.
@@ -27,7 +38,14 @@ A calm, offline trivia app being designed for children in kindergarten through g
 
 ## Building and testing
 
-An Xcode project and app implementation have not been added. Build and test instructions will accompany the first runnable implementation. Device support, minimum OS versions, architecture, and content-review procedures still need to be specified.
+Open `CuriosityGarden.xcodeproj` and run the shared CuriosityGarden scheme on an iPhone/iPad simulator or your own signed device. Debug builds allow draft fixtures with a visible banner; Release builds accept reviewed content only and currently have no playable reviewed bank.
+
+```sh
+swift test
+xcodebuild -project CuriosityGarden.xcodeproj -scheme CuriosityGarden -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+```
+
+See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI checks core rules and both Debug/Release iOS compilation. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
 
 ## Adapting and publishing
 

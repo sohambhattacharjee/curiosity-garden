@@ -1,0 +1,23 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main, 'feat/**']
+permissions:
+  contents: read
+jobs:
+  core-tests:
+    name: Core tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test
+  ios-build:
+    name: iOS build
+    runs-on: macos-15
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    steps:
+      - uses: actions/checkout@v4
+      - run: xcodebuild -project CuriosityGarden.xcodeproj -scheme CuriosityGarden -configuration ${{ matrix.configuration }} -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build

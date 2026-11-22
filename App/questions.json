@@ -1,0 +1,1478 @@
+[
+  {
+    "id": "math-0-000",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 1 + 1?",
+    "choices": [
+      "2",
+      "3",
+      "1"
+    ],
+    "correct": 0,
+    "explanation": "1 and 1 together make 2.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-0-001",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 2 + 1?",
+    "choices": [
+      "2",
+      "4",
+      "3"
+    ],
+    "correct": 2,
+    "explanation": "2 and 1 together make 3.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-0-002",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 3 + 1?",
+    "choices": [
+      "4",
+      "5",
+      "3"
+    ],
+    "correct": 0,
+    "explanation": "3 and 1 together make 4.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-0-003",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 4 + 1?",
+    "choices": [
+      "4",
+      "6",
+      "5"
+    ],
+    "correct": 2,
+    "explanation": "4 and 1 together make 5.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-0-004",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 5 + 1?",
+    "choices": [
+      "6",
+      "7",
+      "5"
+    ],
+    "correct": 0,
+    "explanation": "5 and 1 together make 6.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-0-005",
+    "subject": "math",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What is 6 + 1?",
+    "choices": [
+      "6",
+      "8",
+      "7"
+    ],
+    "correct": 2,
+    "explanation": "6 and 1 together make 7.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-006",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 4 + 2?",
+    "choices": [
+      "6",
+      "7",
+      "5"
+    ],
+    "correct": 0,
+    "explanation": "4 and 2 together make 6.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-007",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 5 + 2?",
+    "choices": [
+      "6",
+      "8",
+      "7"
+    ],
+    "correct": 2,
+    "explanation": "5 and 2 together make 7.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-008",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 6 + 2?",
+    "choices": [
+      "8",
+      "9",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "6 and 2 together make 8.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-009",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 7 + 2?",
+    "choices": [
+      "8",
+      "10",
+      "9"
+    ],
+    "correct": 2,
+    "explanation": "7 and 2 together make 9.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-010",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 8 + 2?",
+    "choices": [
+      "10",
+      "11",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "8 and 2 together make 10.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-1-011",
+    "subject": "math",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What is 9 + 2?",
+    "choices": [
+      "10",
+      "12",
+      "11"
+    ],
+    "correct": 2,
+    "explanation": "9 and 2 together make 11.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-012",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 7 + 3?",
+    "choices": [
+      "10",
+      "11",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "7 and 3 together make 10.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-013",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 8 + 3?",
+    "choices": [
+      "10",
+      "12",
+      "11"
+    ],
+    "correct": 2,
+    "explanation": "8 and 3 together make 11.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-014",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 9 + 3?",
+    "choices": [
+      "12",
+      "13",
+      "11"
+    ],
+    "correct": 0,
+    "explanation": "9 and 3 together make 12.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-015",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 10 + 3?",
+    "choices": [
+      "12",
+      "14",
+      "13"
+    ],
+    "correct": 2,
+    "explanation": "10 and 3 together make 13.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-016",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 11 + 3?",
+    "choices": [
+      "14",
+      "15",
+      "13"
+    ],
+    "correct": 0,
+    "explanation": "11 and 3 together make 14.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-2-017",
+    "subject": "math",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What is 12 + 3?",
+    "choices": [
+      "14",
+      "16",
+      "15"
+    ],
+    "correct": 2,
+    "explanation": "12 and 3 together make 15.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-018",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 10 + 4?",
+    "choices": [
+      "14",
+      "15",
+      "13"
+    ],
+    "correct": 0,
+    "explanation": "10 and 4 together make 14.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-019",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 11 + 4?",
+    "choices": [
+      "14",
+      "16",
+      "15"
+    ],
+    "correct": 2,
+    "explanation": "11 and 4 together make 15.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-020",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 12 + 4?",
+    "choices": [
+      "16",
+      "17",
+      "15"
+    ],
+    "correct": 0,
+    "explanation": "12 and 4 together make 16.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-021",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 13 + 4?",
+    "choices": [
+      "16",
+      "18",
+      "17"
+    ],
+    "correct": 2,
+    "explanation": "13 and 4 together make 17.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-022",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 14 + 4?",
+    "choices": [
+      "18",
+      "19",
+      "17"
+    ],
+    "correct": 0,
+    "explanation": "14 and 4 together make 18.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-3-023",
+    "subject": "math",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is 15 + 4?",
+    "choices": [
+      "18",
+      "20",
+      "19"
+    ],
+    "correct": 2,
+    "explanation": "15 and 4 together make 19.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-024",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 13 + 5?",
+    "choices": [
+      "18",
+      "19",
+      "17"
+    ],
+    "correct": 0,
+    "explanation": "13 and 5 together make 18.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-025",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 14 + 5?",
+    "choices": [
+      "18",
+      "20",
+      "19"
+    ],
+    "correct": 2,
+    "explanation": "14 and 5 together make 19.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-026",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 15 + 5?",
+    "choices": [
+      "20",
+      "21",
+      "19"
+    ],
+    "correct": 0,
+    "explanation": "15 and 5 together make 20.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-027",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 16 + 5?",
+    "choices": [
+      "20",
+      "22",
+      "21"
+    ],
+    "correct": 2,
+    "explanation": "16 and 5 together make 21.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-028",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 17 + 5?",
+    "choices": [
+      "22",
+      "23",
+      "21"
+    ],
+    "correct": 0,
+    "explanation": "17 and 5 together make 22.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-4-029",
+    "subject": "math",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is 18 + 5?",
+    "choices": [
+      "22",
+      "24",
+      "23"
+    ],
+    "correct": 2,
+    "explanation": "18 and 5 together make 23.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-030",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 16 + 6?",
+    "choices": [
+      "22",
+      "23",
+      "21"
+    ],
+    "correct": 0,
+    "explanation": "16 and 6 together make 22.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-031",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 17 + 6?",
+    "choices": [
+      "22",
+      "24",
+      "23"
+    ],
+    "correct": 2,
+    "explanation": "17 and 6 together make 23.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-032",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 18 + 6?",
+    "choices": [
+      "24",
+      "25",
+      "23"
+    ],
+    "correct": 0,
+    "explanation": "18 and 6 together make 24.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-033",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 19 + 6?",
+    "choices": [
+      "24",
+      "26",
+      "25"
+    ],
+    "correct": 2,
+    "explanation": "19 and 6 together make 25.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-034",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 20 + 6?",
+    "choices": [
+      "26",
+      "27",
+      "25"
+    ],
+    "correct": 0,
+    "explanation": "20 and 6 together make 26.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "math-5-035",
+    "subject": "math",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is 21 + 6?",
+    "choices": [
+      "26",
+      "28",
+      "27"
+    ],
+    "correct": 2,
+    "explanation": "21 and 6 together make 27.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-0-036",
+    "subject": "reading",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which word rhymes with cat?",
+    "choices": [
+      "hat",
+      "sun"
+    ],
+    "correct": 0,
+    "explanation": "Cat and hat have the same ending sound.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-0-037",
+    "subject": "reading",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which word names an action?",
+    "choices": [
+      "red",
+      "run"
+    ],
+    "correct": 1,
+    "explanation": "Run tells what someone does.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-1-038",
+    "subject": "reading",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which word is the opposite of big?",
+    "choices": [
+      "small",
+      "tall"
+    ],
+    "correct": 0,
+    "explanation": "Big and small tell about opposite sizes.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-1-039",
+    "subject": "reading",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which mark ends a question?",
+    "choices": [
+      ".",
+      "?"
+    ],
+    "correct": 1,
+    "explanation": "A question mark comes at the end of a question.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-2-040",
+    "subject": "reading",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which word means more than one dog?",
+    "choices": [
+      "dogs",
+      "dog"
+    ],
+    "correct": 0,
+    "explanation": "Adding s to dog makes dogs, meaning more than one.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-2-041",
+    "subject": "reading",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which word joins two ideas?",
+    "choices": [
+      "blue",
+      "and"
+    ],
+    "correct": 1,
+    "explanation": "And can join words or ideas together.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-3-042",
+    "subject": "reading",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which word names a person?",
+    "choices": [
+      "teacher",
+      "jump"
+    ],
+    "correct": 0,
+    "explanation": "A teacher is a person who helps others learn.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-3-043",
+    "subject": "reading",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which word tells when?",
+    "choices": [
+      "green",
+      "soon"
+    ],
+    "correct": 1,
+    "explanation": "Soon tells that something will happen in a short time.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-4-044",
+    "subject": "reading",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which word is a complete sentence?",
+    "choices": [
+      "Birds sing.",
+      "The blue"
+    ],
+    "correct": 0,
+    "explanation": "Birds sing tells who and what they do.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-4-045",
+    "subject": "reading",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which word means the same as glad?",
+    "choices": [
+      "cold",
+      "happy"
+    ],
+    "correct": 1,
+    "explanation": "Glad and happy can describe the same feeling.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-5-046",
+    "subject": "reading",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which word describes a sound?",
+    "choices": [
+      "loud",
+      "round"
+    ],
+    "correct": 0,
+    "explanation": "Loud describes a sound that is easy to hear.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "reading-5-047",
+    "subject": "reading",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which is a compound word?",
+    "choices": [
+      "flower",
+      "sunflower"
+    ],
+    "correct": 1,
+    "explanation": "Sunflower joins sun and flower into one word.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-0-048",
+    "subject": "science",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which helps us see?",
+    "choices": [
+      "eyes",
+      "ears"
+    ],
+    "correct": 0,
+    "explanation": "Our eyes sense light and help us see.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-0-049",
+    "subject": "science",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "What does ice become when it melts?",
+    "choices": [
+      "sand",
+      "water"
+    ],
+    "correct": 1,
+    "explanation": "Ice is frozen water. Melting turns it into liquid water.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-1-050",
+    "subject": "science",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which gives Earth light in the day?",
+    "choices": [
+      "the Sun",
+      "a rock"
+    ],
+    "correct": 0,
+    "explanation": "The Sun is a star that gives Earth light and warmth.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-1-051",
+    "subject": "science",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What pulls a dropped ball toward the ground?",
+    "choices": [
+      "sound",
+      "gravity"
+    ],
+    "correct": 1,
+    "explanation": "Gravity pulls objects toward Earth.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-2-052",
+    "subject": "science",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What do we use to measure temperature?",
+    "choices": [
+      "a thermometer",
+      "a ruler"
+    ],
+    "correct": 0,
+    "explanation": "A thermometer measures how warm or cold something is.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-2-053",
+    "subject": "science",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which state of matter keeps its own shape?",
+    "choices": [
+      "liquid",
+      "solid"
+    ],
+    "correct": 1,
+    "explanation": "A solid keeps its shape; a liquid takes the shape of its container.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-3-054",
+    "subject": "science",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which is a gas in the air?",
+    "choices": [
+      "oxygen",
+      "iron"
+    ],
+    "correct": 0,
+    "explanation": "Air is a mix of gases, including oxygen.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-3-055",
+    "subject": "science",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What makes a shadow?",
+    "choices": [
+      "an object making light",
+      "an object blocking light"
+    ],
+    "correct": 1,
+    "explanation": "A shadow forms where an object blocks light.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-4-056",
+    "subject": "science",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which carries sound to our ears?",
+    "choices": [
+      "vibrations",
+      "colors"
+    ],
+    "correct": 0,
+    "explanation": "Sound begins with vibrations that travel through matter.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-4-057",
+    "subject": "science",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which tool helps us see tiny things?",
+    "choices": [
+      "a compass",
+      "a microscope"
+    ],
+    "correct": 1,
+    "explanation": "A microscope makes very small things look larger.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-5-058",
+    "subject": "science",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which material is usually pulled by a magnet?",
+    "choices": [
+      "iron",
+      "wood"
+    ],
+    "correct": 0,
+    "explanation": "Magnets attract iron and some other metals.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "science-5-059",
+    "subject": "science",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What is water turning to vapor called?",
+    "choices": [
+      "freezing",
+      "evaporation"
+    ],
+    "correct": 1,
+    "explanation": "Evaporation is liquid water changing into water vapor.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-0-060",
+    "subject": "world",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which shows places on Earth?",
+    "choices": [
+      "a map",
+      "a spoon"
+    ],
+    "correct": 0,
+    "explanation": "A map is a drawing that shows where places are.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-0-061",
+    "subject": "world",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which is a large body of salt water?",
+    "choices": [
+      "a pond",
+      "an ocean"
+    ],
+    "correct": 1,
+    "explanation": "Oceans are large bodies of salt water.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-1-062",
+    "subject": "world",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which direction is opposite north?",
+    "choices": [
+      "south",
+      "east"
+    ],
+    "correct": 0,
+    "explanation": "North and south are opposite directions.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-1-063",
+    "subject": "world",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which is land with water all around it?",
+    "choices": [
+      "a hill",
+      "an island"
+    ],
+    "correct": 1,
+    "explanation": "An island is land surrounded by water.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-2-064",
+    "subject": "world",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which continent includes the United States?",
+    "choices": [
+      "North America",
+      "Antarctica"
+    ],
+    "correct": 0,
+    "explanation": "The United States is in North America.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-2-065",
+    "subject": "world",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which is a model of Earth?",
+    "choices": [
+      "a clock",
+      "a globe"
+    ],
+    "correct": 1,
+    "explanation": "A globe shows Earth as a round model.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-3-066",
+    "subject": "world",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which ocean is west of the mainland United States?",
+    "choices": [
+      "Pacific",
+      "Atlantic"
+    ],
+    "correct": 0,
+    "explanation": "The Pacific Ocean is along the west coast of the mainland United States.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-3-067",
+    "subject": "world",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is a map key for?",
+    "choices": [
+      "telling time",
+      "explaining symbols"
+    ],
+    "correct": 1,
+    "explanation": "A map key explains what the symbols on a map mean.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-4-068",
+    "subject": "world",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What is a desert usually like?",
+    "choices": [
+      "very dry",
+      "always wet"
+    ],
+    "correct": 0,
+    "explanation": "A desert gets very little rain or snow.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-4-069",
+    "subject": "world",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which is a very high landform?",
+    "choices": [
+      "a bay",
+      "a mountain"
+    ],
+    "correct": 1,
+    "explanation": "A mountain rises high above the land around it.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-5-070",
+    "subject": "world",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which line divides Earth into northern and southern halves?",
+    "choices": [
+      "the equator",
+      "a road"
+    ],
+    "correct": 0,
+    "explanation": "The equator is an imaginary line around the middle of Earth.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "world-5-071",
+    "subject": "world",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Where does a river usually flow?",
+    "choices": [
+      "uphill",
+      "downhill"
+    ],
+    "correct": 1,
+    "explanation": "Gravity makes river water flow downhill.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-0-072",
+    "subject": "nature",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which animal has feathers?",
+    "choices": [
+      "a bird",
+      "a cat"
+    ],
+    "correct": 0,
+    "explanation": "Birds have feathers that help protect their bodies.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-0-073",
+    "subject": "nature",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which part of a plant takes in water from soil?",
+    "choices": [
+      "petals",
+      "roots"
+    ],
+    "correct": 1,
+    "explanation": "Roots take in water from the soil.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-1-074",
+    "subject": "nature",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What does a caterpillar become?",
+    "choices": [
+      "a butterfly or moth",
+      "a frog"
+    ],
+    "correct": 0,
+    "explanation": "Caterpillars grow into butterflies or moths.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-1-075",
+    "subject": "nature",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "Which animal is a mammal?",
+    "choices": [
+      "a trout",
+      "a whale"
+    ],
+    "correct": 1,
+    "explanation": "Whales are mammals that breathe air and feed milk to their young.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-2-076",
+    "subject": "nature",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which plant part makes most of its food?",
+    "choices": [
+      "leaves",
+      "roots"
+    ],
+    "correct": 0,
+    "explanation": "Most leaves use light to make food for the plant.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-2-077",
+    "subject": "nature",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which animal has six legs?",
+    "choices": [
+      "a spider",
+      "an ant"
+    ],
+    "correct": 1,
+    "explanation": "Ants are insects, and insects have six legs.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-3-078",
+    "subject": "nature",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "What is a place where an animal lives called?",
+    "choices": [
+      "a habitat",
+      "a recipe"
+    ],
+    "correct": 0,
+    "explanation": "A habitat provides an animal with things it needs to live.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-3-079",
+    "subject": "nature",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which helps move pollen between flowers?",
+    "choices": [
+      "a rock",
+      "a bee"
+    ],
+    "correct": 1,
+    "explanation": "Bees can carry pollen from one flower to another.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-4-080",
+    "subject": "nature",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which animal is an amphibian?",
+    "choices": [
+      "a frog",
+      "a sparrow"
+    ],
+    "correct": 0,
+    "explanation": "Frogs are amphibians. Many begin life in water.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-4-081",
+    "subject": "nature",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "What helps a fish take oxygen from water?",
+    "choices": [
+      "wings",
+      "gills"
+    ],
+    "correct": 1,
+    "explanation": "A fish uses gills to take oxygen from water.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-5-082",
+    "subject": "nature",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which breaks down dead leaves?",
+    "choices": [
+      "fungi",
+      "plastic"
+    ],
+    "correct": 0,
+    "explanation": "Many fungi break down dead material and return nutrients to the soil.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "nature-5-083",
+    "subject": "nature",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "What begins many food chains?",
+    "choices": [
+      "a fox",
+      "a plant"
+    ],
+    "correct": 1,
+    "explanation": "Plants use energy from sunlight and provide food for other living things.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-0-084",
+    "subject": "everyday",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which helps clean our hands?",
+    "choices": [
+      "soap and water",
+      "dry sand"
+    ],
+    "correct": 0,
+    "explanation": "Washing with soap and water helps remove dirt and germs.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-0-085",
+    "subject": "everyday",
+    "level": 0,
+    "readingGrade": 0,
+    "prompt": "Which tool tells time?",
+    "choices": [
+      "a fork",
+      "a clock"
+    ],
+    "correct": 1,
+    "explanation": "A clock shows the time of day.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-1-086",
+    "subject": "everyday",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "How many days are in one week?",
+    "choices": [
+      "seven",
+      "five"
+    ],
+    "correct": 0,
+    "explanation": "One week has seven days.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-1-087",
+    "subject": "everyday",
+    "level": 1,
+    "readingGrade": 0,
+    "prompt": "What should you wear for a bike ride?",
+    "choices": [
+      "a paper hat",
+      "a helmet"
+    ],
+    "correct": 1,
+    "explanation": "A properly fitted helmet helps protect your head.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-2-088",
+    "subject": "everyday",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "What should you do before crossing a street?",
+    "choices": [
+      "stop and check with a trusted adult",
+      "run without looking"
+    ],
+    "correct": 0,
+    "explanation": "Stop and look carefully with a trusted adult before crossing.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-2-089",
+    "subject": "everyday",
+    "level": 2,
+    "readingGrade": 0,
+    "prompt": "Which is a safe way to handle a hot pan?",
+    "choices": [
+      "touch it with bare hands",
+      "ask an adult for help"
+    ],
+    "correct": 1,
+    "explanation": "A hot pan can burn skin. Ask an adult for help.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-3-090",
+    "subject": "everyday",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "How many months are in one year?",
+    "choices": [
+      "twelve",
+      "ten"
+    ],
+    "correct": 0,
+    "explanation": "A year has twelve months.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-3-091",
+    "subject": "everyday",
+    "level": 3,
+    "readingGrade": 0,
+    "prompt": "Which helps reduce waste?",
+    "choices": [
+      "throwing it away after each use",
+      "using a bottle again"
+    ],
+    "correct": 1,
+    "explanation": "A reusable bottle can reduce the number of bottles thrown away.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-4-092",
+    "subject": "everyday",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which coin is worth five cents in the United States?",
+    "choices": [
+      "a nickel",
+      "a dime"
+    ],
+    "correct": 0,
+    "explanation": "A nickel is worth five cents, and a dime is worth ten cents.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-4-093",
+    "subject": "everyday",
+    "level": 4,
+    "readingGrade": 0,
+    "prompt": "Which is one hour?",
+    "choices": [
+      "thirty minutes",
+      "sixty minutes"
+    ],
+    "correct": 1,
+    "explanation": "An hour has sixty minutes.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-5-094",
+    "subject": "everyday",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which is a kind way to join a game?",
+    "choices": [
+      "ask to join",
+      "push someone aside"
+    ],
+    "correct": 0,
+    "explanation": "Asking to join respects other people and their space.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  },
+  {
+    "id": "everyday-5-095",
+    "subject": "everyday",
+    "level": 5,
+    "readingGrade": 0,
+    "prompt": "Which helps keep teeth clean?",
+    "choices": [
+      "only rinsing",
+      "brushing"
+    ],
+    "correct": 1,
+    "explanation": "Brushing helps remove plaque from teeth.",
+    "status": "draft",
+    "source": "Original project-authored development fixture; factual review and reading-level review pending."
+  }
+]

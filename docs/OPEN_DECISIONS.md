@@ -30,3 +30,7 @@ These details are not yet approved product requirements. Resolve them through th
 - App architecture and local persistence format.
 - Build, automated checks, and device-test plan.
 - Content accessibility, Dynamic Type, VoiceOver, appearance variants, and contrast verification. The selected MVP excludes an in-app read-aloud feature.
+
+## Implementation follow-up
+
+See [IMPLEMENTATION_DECISIONS.md](IMPLEMENTATION_DECISIONS.md) for the documented baseline choices. The owner approved extending rounds only after difficulty changes, with two subsequent answers at each changed subject's new level, bounded by the selected grade maximum. Paired extensions preserve the even mix. The other entries above remain a backlog of product refinements and release verification, not claims that a reviewed bank or accessibility audit exists.
