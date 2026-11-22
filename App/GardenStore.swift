@@ -20,11 +20,15 @@ import Darwin
         allowsDrafts = false
         #endif
         url = URL.applicationSupportDirectory.appending(path: "CuriosityGarden/state.json")
-        bank = (try? JSONDecoder().decode([Question].self, from: Data(contentsOf: Bundle.main.url(forResource: "questions", withExtension: "json")!))) ?? []
+        if let bankURL = Bundle.main.url(forResource: "questions", withExtension: "json"),
+           let data = try? Data(contentsOf: bankURL), let decoded = try? JSONDecoder().decode([Question].self, from: data) {
+            bank = decoded
+        } else { bank = [] }
         do { state = try JSONDecoder().decode(GardenState.self, from: Data(contentsOf: url)) }
-        catch { if FileManager.default.fileExists(atPath: url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Restore your device backup or contact the family build owner." } }
+        catch { if FileManager.default.fileExists(atPath: url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Contact the family build owner." } }
         state.prune(now: Date())
-        recap = state.round.map { $0.finished(grade: state.grade ?? 0) || $0.pending == nil } ?? false
+        state.validateResumedContent(allowDrafts: allowsDrafts)
+        recap = state.round?.needsRecap ?? false
         if state.grade != nil { state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: false, grade: state.grade!, restored: true); save() }
     }
     // Continuous boot time includes device sleep, so an ordinary locked-device
@@ -47,7 +51,7 @@ import Darwin
         guard let grade = state.grade else { return }
         state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: wantsPlay, grade: grade)
         state.prune(now: Date())
-        if blocked { recap = true; state.round?.pending = nil; state.round?.response = nil }
+        if blocked { recap = true; state.round?.end(.sessionLimit) }
         save()
     }
     func setup(grade: Int) {
@@ -62,11 +66,13 @@ import Darwin
     }
     func next() {
         tick(); guard !blocked, let grade = state.grade, var round = state.round, error == nil else { return }
-        if round.finished(grade: grade) { recap = true; tick(); return }
+        if round.finished(grade: grade) {
+            round.end(.completed); state.round = round; recap = true; save(); return
+        }
         round.response = nil
         round.pending = QuestionPicker.pick(bank: bank, grade: grade, progress: state.progress, round: round, history: state.history, allowDrafts: allowsDrafts, now: Date(), sessionID: state.clock.id)
+        if round.pending == nil { round.end(.contentUnavailable); recap = true }
         state.round = round
-        if round.pending == nil { recap = true }
         save()
     }
     func answer(_ response: Response) {

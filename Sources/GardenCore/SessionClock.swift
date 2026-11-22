@@ -55,5 +55,13 @@ public struct GardenState: Codable, Sendable {
     public var round: Round?
     public var clock = SessionClock()
     public init() {}
+    /// Recheck persisted content on configuration changes, including Debug → Release.
+    public mutating func validateResumedContent(allowDrafts: Bool) {
+        guard let round else { return }
+        let snapshots = round.answers.map(\.question) + [round.pending].compactMap { $0 }
+        if snapshots.contains(where: { !$0.valid || (!allowDrafts && $0.status != .reviewed) }) {
+            self.round = nil
+        }
+    }
     public mutating func prune(now: Date) { history.removeAll { $0.date < now.addingTimeInterval(-90 * 86400) }; if let round, round.answers.contains(where: { $0.date < now.addingTimeInterval(-90 * 86400) }) { self.round = nil } }
 }

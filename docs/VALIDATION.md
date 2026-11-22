@@ -21,3 +21,9 @@ Content release is blocked until a human-reviewed question bank has adequate sub
 - Debug and Release generic simulator builds succeeded locally. Running in Xcode exposed and fixed a Debug active-architecture mismatch. CI on Xcode 16.4 exposed an oversized SwiftUI expression; the report was split into smaller views and its subject type was qualified for compatibility. All three CI jobs then passed on Xcode 16.4.
 - Screenshot review exposed dark primary-button labels; corrected to white and recaptured. Completed-round recap now restores after relaunch.
 - No physical-device, full VoiceOver/Dynamic Type, ninety-day real-time aging, or full thirty-minute real-time break audit has been completed. These remain release checks above.
+
+## Pre-merge review corrections — 2026-11-21
+
+A fresh review found that six-question review slots always selected the general-knowledge group, saved Debug rounds could bypass the Release draft gate, and recap completion was not persisted separately from final-answer feedback. Fixed the review cadence to alternate groups, revalidate all resumed round content, and persist explicit completion/session-limit/content-unavailable reasons. Empty or malformed PIN submissions are rejected before password derivation; missing question resources now fail gracefully.
+
+The expanded core suite passes 17 tests, including regression coverage for school/general missed-question review despite subject balancing, draft-question and draft-recap rejection after persistence, and separate restoration of final explanations and ended recaps. Existing adaptation and timing tests remain passing.

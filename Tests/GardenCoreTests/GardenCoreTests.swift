@@ -120,11 +120,60 @@ final class GardenCoreTests: XCTestCase {
     func testMissedReviewComesFromPreviousSession() {
         let oldSession = UUID(), newSession = UUID()
         var round = Round()
-        for i in 0..<5 { round.answers.append(AnswerRecord(roundID: round.id, question: question(id: "used-\(i)"), response: .choice(0), date: date, levelAfter: 0)) }
+        for i in 0..<9 { round.answers.append(AnswerRecord(roundID: round.id, question: question(id: "used-\(i)"), response: .choice(0), date: date, levelAfter: 0)) }
         let missed = question(.nature, id: "missed"), fresh = question(.nature, id: "fresh")
         let history = [AnswerRecord(roundID: UUID(), question: missed, response: .unsure, date: date.addingTimeInterval(-1800), levelAfter: 0, sessionID: oldSession)]
         XCTAssertEqual(QuestionPicker.pick(bank: [fresh,missed], grade: 0, progress: [:], round: round, history: history, allowDrafts: true, now: date, sessionID: newSession)?.id, "missed")
         XCTAssertEqual(QuestionPicker.pick(bank: [fresh,missed], grade: 0, progress: [:], round: round, history: history, allowDrafts: true, now: date, sessionID: oldSession)?.id, "fresh")
+    }
+
+    func testReviewsReachSchoolAndGeneralEvenWithSubjectBalancing() throws {
+        for (position, subject) in [(4, Subject.math), (9, Subject.nature)] {
+            var round = Round()
+            for index in 0..<position {
+                // Give the missed subject more use; its due review must still be reachable.
+                round.answers.append(AnswerRecord(roundID: round.id, question: question(subject, id: "used-\(index)"), response: .choice(0), date: date, levelAfter: 0))
+            }
+            let session = UUID()
+            let missed = question(subject, id: "missed")
+            let freshSubject: Subject = subject.isSchool ? .science : .world
+            let history = [AnswerRecord(roundID: UUID(), question: missed, response: .unsure, date: date.addingTimeInterval(-1800), levelAfter: 0, sessionID: UUID())]
+            let result = try XCTUnwrap(QuestionPicker.pick(bank: [question(freshSubject, id: "fresh"), missed], grade: 0, progress: [:], round: round, history: history, allowDrafts: true, now: date, sessionID: session))
+            XCTAssertEqual(result.id, "missed")
+            XCTAssertEqual(result.subject.isSchool, position.isMultiple(of: 2))
+        }
+    }
+    func testReleaseRejectsPersistedDraftQuestionAndDraftRecap() throws {
+        var state = GardenState(); state.grade = 0
+        var round = Round(); round.pending = question()
+        state.round = round
+        let data = try JSONEncoder().encode(state)
+        var debug = try JSONDecoder().decode(GardenState.self, from: data)
+        debug.validateResumedContent(allowDrafts: true); XCTAssertNotNil(debug.round)
+        state.validateResumedContent(allowDrafts: false); XCTAssertNil(state.round)
+        let answer = AnswerRecord(roundID: round.id, question: question(), response: .unsure, date: date, levelAfter: 0)
+        round.answers = [answer]; round.end(.completed)
+        state.round = round; state.history = [answer]
+        state.validateResumedContent(allowDrafts: false)
+        XCTAssertNil(state.round); XCTAssertEqual(state.history.count, 1)
+        var reviewed = question(); reviewed.status = .reviewed; reviewed.reviewer = "Test reviewer"; reviewed.reviewedAt = date
+        var valid = Round(); valid.pending = reviewed; state.round = valid
+        state.validateResumedContent(allowDrafts: false); XCTAssertNotNil(state.round)
+    }
+    func testFinalExplanationAndEndedRecapPersistSeparately() throws {
+        var round = Round(); round.pending = question()
+        for _ in 0..<10 {
+            round.record(AnswerRecord(roundID: round.id, question: question(), response: .choice(0), date: date, levelAfter: 0), oldLevel: 0)
+        }
+        round = try JSONDecoder().decode(Round.self, from: JSONEncoder().encode(round))
+        XCTAssertTrue(round.finished(grade: 0))
+        XCTAssertFalse(round.needsRecap) // Explanation remains until Next.
+        for reason in [RoundEndReason.completed, .sessionLimit, .contentUnavailable] {
+            var ended = round; ended.end(reason)
+            ended = try JSONDecoder().decode(Round.self, from: JSONEncoder().encode(ended))
+            XCTAssertEqual(ended.endReason, reason); XCTAssertTrue(ended.needsRecap)
+            XCTAssertNil(ended.pending); XCTAssertEqual(ended.answers.count, 10)
+        }
     }
     func testDraftBankIsValidAndMixedRoundCompletes() throws {
         let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appending(path: "App/questions.json")

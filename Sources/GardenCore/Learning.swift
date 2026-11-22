@@ -45,7 +45,11 @@ public struct AnswerRecord: Codable, Identifiable, Sendable {
     public var correct: Bool { response == .choice(question.correct) }
     public init(roundID: UUID, question: Question, response: Response, date: Date, levelAfter: Int, sessionID: UUID? = nil) { self.sessionID = sessionID; self.roundID = roundID; self.question = question; self.response = response; self.date = date; self.levelAfter = levelAfter }
 }
+public enum RoundEndReason: String, Codable, Sendable { case completed, sessionLimit, contentUnavailable }
 public struct Round: Codable, Sendable {
+    public var endReason: RoundEndReason?
+    public var needsRecap: Bool { endReason != nil || pending == nil }
+    public mutating func end(_ reason: RoundEndReason) { endReason = reason; pending = nil; response = nil }
     public var id = UUID()
     public var answers: [AnswerRecord] = []
     public var pending: Question?
@@ -71,15 +75,24 @@ public enum QuestionPicker {
         let eligible = bank.filter { $0.valid && (allowDrafts || $0.status == .reviewed) && $0.readingGrade <= grade && $0.subject.isSchool == school && !used.contains($0.id) }
         let needsCalibration = Set(round.calibration.filter { $0.value < 2 }.map(\.key))
         let seen = Dictionary(grouping: history, by: { $0.question.id })
-        // One review opportunity per six questions, from a previous round/session only.
-        let reviewSlot = round.answers.count % 6 == 5
+        // Every fifth position alternates school/general across a ten-question round.
+        let reviewSlot = round.answers.count % 5 == 4
+        let nearest = Dictionary(grouping: eligible, by: \.subject).mapValues { questions in
+            questions.map { abs($0.level - (progress[$0.subject]?.level ?? grade)) }.min() ?? 0
+        }
         return eligible.sorted { a, b in
             func rank(_ q: Question) -> [Int] {
                 let records = seen[q.id] ?? []
                 let latest = records.max(by: { $0.date < $1.date })
-                let review = reviewSlot && latest?.correct == false && latest?.roundID != round.id && (sessionID == nil || latest?.sessionID != sessionID) && now.timeIntervalSince(latest!.date) >= 1800
+                let distance = abs(q.level - (progress[q.subject]?.level ?? grade))
+                let review: Bool
+                if let latest {
+                    review = reviewSlot && !latest.correct && latest.roundID != round.id
+                        && (sessionID == nil || latest.sessionID != sessionID)
+                        && now.timeIntervalSince(latest.date) >= 1800 && distance == nearest[q.subject]
+                } else { review = false }
                 let uses = round.answers.filter { $0.question.subject == q.subject }.count
-                return [needsCalibration.contains(q.subject) ? 0 : 1, uses, abs(q.level - (progress[q.subject]?.level ?? grade)), review ? 0 : 1, records.isEmpty ? 0 : 1]
+                return [needsCalibration.contains(q.subject) ? 0 : 1, review ? 0 : 1, uses, distance, records.isEmpty ? 0 : 1]
             }
             let ar = rank(a), br = rank(b)
             if ar != br { return ar.lexicographicallyPrecedes(br) }

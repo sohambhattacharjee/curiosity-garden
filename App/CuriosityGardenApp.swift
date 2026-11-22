@@ -76,7 +76,7 @@ struct GardenView: View {
             Text("What we discovered").font(.title2.bold())
             ForEach(Array((store.state.round?.answers ?? []).suffix(2))) { record in Text(record.question.explanation) }
             Text("Thank you for exploring. There's a whole world to notice away from the screen.")
-            if store.state.round?.pending == nil && (store.state.round?.answers.count ?? 0) < 10 { Text("This build needs more reviewed questions to complete the round.").font(.callout) }
+            if store.state.round?.endReason == .contentUnavailable { Text("This build needs more reviewed questions to complete the round.").font(.callout) }
             Button("Done") { store.state.round = nil; store.recap = false; store.tick() }.buttonStyle(.borderedProminent).foregroundStyle(.white)
         }
     }

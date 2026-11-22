@@ -1,5 +1,4 @@
 import Foundation
-import CryptoKit
 import CommonCrypto
 import Security
 
@@ -39,6 +38,7 @@ enum ParentPIN {
     }
     static func verify(_ pin: String) -> Bool {
         guard var credential = read(), credential.lockedUntil.map({ $0 <= Date() }) ?? true else { return false }
+        guard pin.count == 6, pin.allSatisfy({ $0.isASCII && $0.isNumber }), credential.salt.count == 16, credential.digest.count == 32 else { return false }
         let digest = derive(pin, salt: credential.salt)
         let matches = zip(digest, credential.digest).reduce(UInt8(0)) { $0 | ($1.0 ^ $1.1) } == 0
         if matches { credential.failures = 0; credential.lockedUntil = nil }
