@@ -217,10 +217,10 @@ final class GardenCoreTests: XCTestCase {
         }
         XCTAssertFalse(SubjectReport(subject: .math, level: 1, history: history).needsPractice)
     }
-    func testDraftBankIsValidAndMixedRoundCompletes() throws {
+    func testBundledBankIsValidAndMixedRoundCompletes() throws {
         let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appending(path: "App/questions.json")
         let bank = try JSONDecoder().decode([Question].self, from: Data(contentsOf: url))
-        XCTAssertTrue(bank.allSatisfy(\.valid)); XCTAssertTrue(bank.allSatisfy { $0.status == .draft }); XCTAssertEqual(Set(bank.map(\.id)).count, bank.count)
+        XCTAssertTrue(bank.allSatisfy(\.valid)); XCTAssertEqual(Set(bank.map(\.id)).count, bank.count)
         for grade in 0...5 {
             var round = Round()
             while !round.finished(grade: grade) {
