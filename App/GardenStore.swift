@@ -137,12 +137,16 @@ import LocalAuthentication
             context.invalidate()
             if recoveryID == attempt { recoveryID = nil; recoveryContext = nil; recoveringPIN = false }
         }
-        do {
-            let authenticated = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Reset your Curiosity Garden parent PIN.")
-            // A late reply after closing or backgrounding must never replace the PIN.
-            guard authenticated, !Task.isCancelled, recoveryID == attempt, parentOpen else { return .cancelled }
-            return ParentPIN.create(replacement, service: pinService) ? .success : .saveFailed
-        } catch { return .cancelled }
+        // Keep LAContext on the main actor. Only the Boolean result crosses
+        // from the system callback; older Swift 6 SDKs don't mark LAContext Sendable.
+        let authenticated = await withCheckedContinuation { continuation in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Reset your Curiosity Garden parent PIN.") { success, _ in
+                continuation.resume(returning: success)
+            }
+        }
+        // A late reply after closing or backgrounding must never replace the PIN.
+        guard authenticated, !Task.isCancelled, recoveryID == attempt, parentOpen else { return .cancelled }
+        return ParentPIN.create(replacement, service: pinService) ? .success : .saveFailed
     }
     func closeParent() {
         recoveryID = nil; recoveryContext?.invalidate(); recoveryContext = nil; recoveringPIN = false
