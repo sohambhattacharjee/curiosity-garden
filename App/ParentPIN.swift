@@ -37,6 +37,11 @@ enum ParentPIN {
         let salt = Data(bytes)
         return write(Credential(salt: salt, digest: derive(pin, salt: salt)), service: service)
     }
+    static func change(current: String, replacement: String, confirmation: String, service: String = service, now: Date = Date()) -> Bool {
+        guard replacement == confirmation, replacement.count == 6, replacement.allSatisfy({ $0.isASCII && $0.isNumber }),
+              verify(current, service: service, now: now) else { return false }
+        return create(replacement, service: service)
+    }
     static func verify(_ pin: String, service: String = service, now: Date = Date()) -> Bool {
         guard var credential = read(service: service), credential.lockedUntil.map({ $0 <= now }) ?? true else { return false }
         guard pin.count == 6, pin.allSatisfy({ $0.isASCII && $0.isNumber }), credential.salt.count == 16, credential.digest.count == 32 else { return false }

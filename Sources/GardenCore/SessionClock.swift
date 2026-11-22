@@ -54,6 +54,17 @@ public struct GardenState: Codable, Sendable {
     public var history: [AnswerRecord] = []
     public var round: Round?
     public var clock = SessionClock()
+    public var readingPreferences: ReadingPreferences?
+    public var playDays: [PlayDay]?
+    public var reading: ReadingPreferences { readingPreferences ?? ReadingPreferences() }
+    public mutating func recordPlay(seconds: TimeInterval, on date: Date, calendar: Calendar = .current) {
+        guard seconds > 0 && seconds.isFinite else { return }
+        let day = calendar.startOfDay(for: date)
+        var days = playDays ?? []
+        if let index = days.firstIndex(where: { $0.date == day }) { days[index].seconds += seconds }
+        else { days.append(PlayDay(date: day, seconds: seconds)) }
+        playDays = days
+    }
     public init() {}
     /// Recheck persisted content on configuration changes, including Debug → Release.
     public mutating func validateResumedContent(allowDrafts: Bool) {
@@ -63,5 +74,5 @@ public struct GardenState: Codable, Sendable {
             self.round = nil
         }
     }
-    public mutating func prune(now: Date) { history.removeAll { $0.date < now.addingTimeInterval(-90 * 86400) }; if let round, round.answers.contains(where: { $0.date < now.addingTimeInterval(-90 * 86400) }) { self.round = nil } }
+    public mutating func prune(now: Date) { playDays?.removeAll { $0.date < ReportWindow.ninetyDays.start(now: now) }; history.removeAll { $0.date < now.addingTimeInterval(-90 * 86400) }; if let round, round.answers.contains(where: { $0.date < now.addingTimeInterval(-90 * 86400) }) { self.round = nil } }
 }

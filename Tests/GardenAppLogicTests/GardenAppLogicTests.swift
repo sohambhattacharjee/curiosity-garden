@@ -70,7 +70,8 @@ final class GardenAppLogicTests: XCTestCase {
         let (empty, _, _) = try makeStore(bank: [])
         empty.setup(grade: 0); empty.start()
         XCTAssertTrue(empty.recap); XCTAssertEqual(empty.state.round?.endReason, .contentUnavailable)
-        let (debug, url, time) = try makeStore()
+        let draft = Question(id: "upgrade-draft", subject: .math, level: 0, readingGrade: 0, prompt: "One plus one?", choices: ["Two", "Three"], correct: 0, explanation: "One and one make two.", source: "Original test fixture")
+        let (debug, url, time) = try makeStore(bank: [draft])
         debug.setup(grade: 0); debug.start(); debug.answer(.unsure)
         let release = GardenStore(url: url, bank: debug.bank, allowsDrafts: false, now: { time.date }, uptime: { time.uptime })
         XCTAssertNil(release.state.round); XCTAssertEqual(release.state.history.count, 1)
@@ -91,6 +92,36 @@ final class GardenAppLogicTests: XCTestCase {
         failing.setup(grade: 0); XCTAssertNotNil(failing.error)
         failing.answer(.unsure); failing.next(); failing.start()
         XCTAssertTrue(failing.state.history.isEmpty)
+    }
+
+    @MainActor func testProtectedReadingSettingsAndPeriodReportsPersist() async throws {
+        let (store, url, time) = try makeStore()
+        let preferences = ReadingPreferences(font: .rounded, size: .extraLarge)
+        store.updateReading(preferences); XCTAssertNil(store.state.readingPreferences)
+        store.setup(grade: 1); store.start()
+        time.advance(120); store.tick(); store.answer(.unsure)
+        XCTAssertEqual(store.reportHistory(.week).count, 1)
+        XCTAssertEqual(store.reportSeconds(.week), 120)
+        store.parentUnlocked = true; store.updateReading(preferences)
+        let restored = GardenStore(url: url, bank: store.bank, now: { time.date }, uptime: { time.uptime })
+        XCTAssertEqual(restored.state.reading, preferences)
+        XCTAssertEqual(restored.state.clock.used, 120)
+        XCTAssertEqual(restored.reportSeconds(.month), 120)
+        XCTAssertEqual(restored.reportHistory(.ninetyDays).count, 1)
+        restored.lifecycle(.background); time.advance(500); restored.tick()
+        XCTAssertEqual(restored.reportSeconds(.week), 120)
+    }
+    func testChangingPINRequiresCurrentPINAndMatchingReplacement() throws {
+        try withKeychain { service in
+            XCTAssertTrue(ParentPIN.create("314159", service: service))
+            XCTAssertFalse(ParentPIN.change(current: "314159", replacement: "123", confirmation: "123", service: service))
+            XCTAssertFalse(ParentPIN.change(current: "314159", replacement: "123456", confirmation: "654321", service: service))
+            XCTAssertFalse(ParentPIN.change(current: "000000", replacement: "123456", confirmation: "123456", service: service))
+            XCTAssertTrue(ParentPIN.verify("314159", service: service))
+            XCTAssertTrue(ParentPIN.change(current: "314159", replacement: "271828", confirmation: "271828", service: service))
+            XCTAssertFalse(ParentPIN.verify("314159", service: service))
+            XCTAssertTrue(ParentPIN.verify("271828", service: service))
+        }
     }
     private func withKeychain(_ body: (String) throws -> Void) throws {
         let service = "org.curiositygarden.tests.\(UUID().uuidString)"
