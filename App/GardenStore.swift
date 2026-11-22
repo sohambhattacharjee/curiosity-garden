@@ -35,7 +35,11 @@ import Darwin
         state.prune(now: now())
         state.validateResumedContent(allowDrafts: self.allowsDrafts)
         recap = state.round?.needsRecap ?? false
-        if state.grade != nil { state.clock.update(now: now(), uptime: self.uptime(), wantsPlay: false, grade: state.grade!, restored: true); save() }
+        if let grade = state.grade {
+            let previous = state.clock.totalPlay
+            state.clock.update(now: now(), uptime: self.uptime(), wantsPlay: false, grade: grade, restored: true)
+            state.recordPlay(seconds: state.clock.totalPlay - previous, on: now()); save()
+        }
     }
     // Continuous boot time includes device sleep, so an ordinary locked-device
     // break is not mistaken for a clock change or restart.
@@ -55,7 +59,9 @@ import Darwin
     }
     func tick() {
         guard let grade = state.grade else { return }
+        let previous = state.clock.totalPlay
         state.clock.update(now: now(), uptime: self.uptime(), wantsPlay: wantsPlay, grade: grade)
+        state.recordPlay(seconds: state.clock.totalPlay - previous, on: now())
         state.prune(now: now())
         if blocked { recap = true; state.round?.end(.sessionLimit) }
         save()
@@ -65,6 +71,12 @@ import Darwin
         for subject in Subject.allCases where state.progress[subject] == nil { state.progress[subject] = SubjectProgress(level: grade) }
         save()
     }
+    func updateReading(_ preferences: ReadingPreferences) {
+        guard parentUnlocked else { return }
+        state.readingPreferences = preferences; save()
+    }
+    func reportHistory(_ window: ReportWindow) -> [AnswerRecord] { window.history(state.history, now: now()) }
+    func reportSeconds(_ window: ReportWindow) -> TimeInterval { window.seconds(in: state.playDays ?? [], now: now()) }
     func start() {
         tick(); guard !blocked && error == nil else { return }
         if state.round == nil || state.round!.finished(grade: state.grade ?? 0) || recap { state.round = Round() }

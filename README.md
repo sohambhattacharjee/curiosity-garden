@@ -6,27 +6,21 @@ A calm, offline trivia app being designed for children in kindergarten through g
 
 ## Screenshots
 
-Captured from local Xcode simulator runs using synthetic progress. These show a **Debug development preview with draft questions**, not reviewed educational content.
+Real simulator captures using synthetic progress and **draft placeholder questions**. The iPhone captures use Extra large in-app text at the largest device text setting; the question, choices, explanation, I'm not sure, and Next fit together in portrait and landscape.
 
-### iPhone
+<img src="docs/screenshots/iphone-reading-maximum.png" width="300" alt="Compact iPhone question with all choices, feedback, I'm not sure, and Next visible at the largest text setting" />
 
-<table>
-<tr><th>Mixed round</th><th>Parent report</th><th>Persistent break</th></tr>
-<tr><td><img src="docs/screenshots/iphone-question.png" width="240" alt="Math question with counting dots and three answer choices" /></td><td><img src="docs/screenshots/iphone-parent-report.png" width="240" alt="PIN-protected learning overview with fictional attempts" /></td><td><img src="docs/screenshots/iphone-break.png" width="240" alt="Calm mandatory-break screen preserved after relaunch" /></td></tr>
-</table>
+<img src="docs/screenshots/iphone-landscape.png" width="760" alt="iPhone landscape with wrapped choices, explanation, I'm not sure, and Next visible at the largest text setting" />
 
-### iPad
+<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape with choices, explanation, I'm not sure, and Next visible together" />
 
-<table>
-<tr><th>Parent setup</th><th>Explanation</th><th>Learning recap</th></tr>
-<tr><td><img src="docs/screenshots/ipad-setup.png" width="260" alt="Parent setup with a grade selector and six-digit PIN" /></td><td><img src="docs/screenshots/ipad-explanation.png" width="320" alt="Incorrect-answer explanation waiting for Next" /></td><td><img src="docs/screenshots/ipad-recap.png" width="320" alt="Two learning facts and a calm ending without a score" /></td></tr>
-</table>
-
-<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape showing a question, correct-answer explanation, and Next button" />
+<img src="docs/screenshots/ipad-explanation.png" width="400" alt="iPad portrait with answer feedback and both controls visible together" />
 
 ## Experience
 
 - A parent selects the child's grade behind a separate parent PIN.
+- Larger, capped reading text offers standard and rounded sans-serif options, saved in parent settings.
+- The question screen keeps all choices, “I'm not sure,” and Next visible together.
 - Mixed questions combine school subjects and general knowledge in an even balance.
 - Missed questions return occasionally in later sessions alongside fresh questions.
 - Each subject adapts independently across the K–5 range, with wording suited to the selected grade.
@@ -34,9 +28,12 @@ Captured from local Xcode simulator runs using synthetic progress. These show a 
 - Rounds start at ten questions and may extend for difficulty calibration, to fifteen for K–2 or twenty for grades 3–5.
 - Children can answer at their own pace, see short explanations, and finish with a learning recap without a score.
 - Fixed session caps and thirty-minute breaks create clear stopping points.
-- Parent reports include an overview and ninety days of question-level history, protected by the parent PIN.
+- Parent reports include 7/30/90-day views, practice facts, recorded daily play time, and question-level history, protected by the parent PIN.
+- Parents can change the PIN by providing the current PIN and a matching replacement.
 - One child profile per device, local progress, offline content, and no cross-device synchronization.
 - A minimal cream-and-sage interface, with readable dark text and occasional educational visuals.
+
+Question-bank review is tracked separately in its own draft PR; the app continues to use placeholders. See [technical status](docs/TECH_STATUS.md) for completed code and remaining release checks.
 
 ## Project documents
 
