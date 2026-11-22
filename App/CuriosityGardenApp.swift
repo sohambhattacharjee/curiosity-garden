@@ -115,44 +115,75 @@ struct ParentView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    if !store.parentUnlocked {
-                        Text("Parent access").font(.title)
-                        SecureField("Parent PIN", text: $pin).keyboardType(.numberPad).textFieldStyle(.roundedBorder)
-                        Button("Unlock") { store.parentUnlocked = ParentPIN.verify(pin); pin = ""; message = store.parentUnlocked ? "" : "PIN not accepted. After five failed attempts, wait five minutes." }
-                        Text(message)
-                    } else {
-                        Text("Learning overview").font(.title.bold())
-                        Text("Last 90 days · 'I'm not sure' counts as an attempted, non-correct answer. Unanswered questions are excluded. Interrupted rounds keep answered questions.")
-                        Text("Total foreground play: \(Int(store.state.clock.totalPlay / 60)) minutes")
-                        ForEach(Subject.allCases, id: \.self) { subject in
-                            let records = store.state.history.filter { $0.question.subject == subject }
-                            VStack(alignment: .leading) {
-                                Text(subject.title).font(.headline)
-                                Text(records.isEmpty ? "No answers yet" : "\(records.filter(\.correct).count) correct of \(records.count) attempts (\(Int(Double(records.filter(\.correct).count) / Double(records.count) * 100))%)")
-                                Text("Difficulty: \(level(store.state.progress[subject]?.level ?? 0)) · \(trend(records))")
-                                if records.suffix(5).contains(where: { !$0.correct }) { Text("Practice: revisit recent explanations together.") }
-                            }
-                        }
-                        Picker("Selected grade (reading and future session limits)", selection: Binding(get: { store.state.grade ?? 0 }, set: { store.setup(grade: $0) })) { ForEach(0...5, id: \.self) { Text(level($0)).tag($0) } }
-                        Text("Changing grade preserves subject learning and the current session allowance.").font(.footnote)
-                        Toggle("Question-by-question history", isOn: $showHistory)
-                        if showHistory { ForEach(store.state.history.reversed()) { record in
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(record.question.prompt).font(.headline)
-                                Text("Answer: \(answer(record)) · Correct: \(record.question.choices[record.question.correct])")
-                                Text(record.date.formatted()).font(.caption)
-                                Text("Content: \(record.question.status.rawValue)").font(.caption)
-                            }.padding(.vertical, 8)
-                        } }
-                    }
+                    if store.parentUnlocked { report } else { gate }
                 }.padding(24).frame(maxWidth: 700)
-            }.navigationTitle("Parents").toolbar { Button("Lock and close") { store.parentUnlocked = false; dismiss() } }
+            }.navigationTitle("Parents").toolbar {
+                Button("Lock and close") { store.parentUnlocked = false; dismiss() }
+            }
         }
+    }
+    private var gate: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Parent access").font(.title)
+            SecureField("Parent PIN", text: $pin).keyboardType(.numberPad).textFieldStyle(.roundedBorder)
+            Button("Unlock") {
+                store.parentUnlocked = ParentPIN.verify(pin)
+                pin = ""
+                message = store.parentUnlocked ? "" : "PIN not accepted. After five failed attempts, wait five minutes."
+            }
+            Text(message)
+        }
+    }
+    private var report: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Learning overview").font(.title.bold())
+            Text("Last 90 days · 'I'm not sure' counts as an attempted, non-correct answer. Unanswered questions are excluded. Interrupted rounds keep answered questions.")
+            Text("Total foreground play: \(Int(store.state.clock.totalPlay / 60)) minutes")
+            ForEach(Subject.allCases, id: \.self) { subject in subjectSummary(subject) }
+            gradeSetting
+            Toggle("Question-by-question history", isOn: $showHistory)
+            if showHistory {
+                ForEach(store.state.history.reversed()) { record in historyRow(record) }
+            }
+        }
+    }
+    private var gradeSetting: some View {
+        VStack(alignment: .leading) {
+            Picker("Selected grade (reading and future session limits)", selection: Binding(get: { store.state.grade ?? 0 }, set: { store.setup(grade: $0) })) {
+                ForEach(0...5, id: \.self) { Text(level($0)).tag($0) }
+            }
+            Text("Changing grade preserves subject learning and the current session allowance.").font(.footnote)
+        }
+    }
+    private func subjectSummary(_ subject: Subject) -> some View {
+        let records = store.state.history.filter { $0.question.subject == subject }
+        let correct = records.filter { $0.correct }.count
+        let percent = records.isEmpty ? 0 : Int(Double(correct) / Double(records.count) * 100)
+        let accuracy = records.isEmpty ? "No answers yet" : "\(correct) correct of \(records.count) attempts (\(percent)%)"
+        return VStack(alignment: .leading) {
+            Text(subject.title).font(.headline)
+            Text(accuracy)
+            Text("Difficulty: \(level(store.state.progress[subject]?.level ?? 0)) · \(trend(records))")
+            if records.suffix(5).contains(where: { !$0.correct }) {
+                Text("Practice: revisit recent explanations together.")
+            }
+        }
+    }
+    private func historyRow(_ record: AnswerRecord) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(record.question.prompt).font(.headline)
+            Text("Answer: \(answer(record)) · Correct: \(record.question.choices[record.question.correct])")
+            Text(record.date.formatted()).font(.caption)
+            Text("Content: \(record.question.status.rawValue)").font(.caption)
+        }.padding(.vertical, 8)
     }
     private func level(_ value: Int) -> String { value == 0 ? "K" : "Grade \(value)" }
     private func trend(_ records: [AnswerRecord]) -> String {
         guard let first = records.first, let last = records.last else { return "No trend yet" }
         return last.levelAfter > first.levelAfter ? "Moving to harder material" : last.levelAfter < first.levelAfter ? "Practicing foundations" : "Steady"
     }
-    private func answer(_ record: AnswerRecord) -> String { if case let .choice(index) = record.response { return record.question.choices[index] }; return "I'm not sure" }
+    private func answer(_ record: AnswerRecord) -> String {
+        if case let .choice(index) = record.response { return record.question.choices[index] }
+        return "I'm not sure"
+    }
 }

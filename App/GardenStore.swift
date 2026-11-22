@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import GardenCore
+import Darwin
 
 @MainActor final class GardenStore: ObservableObject {
     @Published var state = GardenState()
@@ -24,7 +25,14 @@ import GardenCore
         catch { if FileManager.default.fileExists(atPath: url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Restore your device backup or contact the family build owner." } }
         state.prune(now: Date())
         recap = state.round.map { $0.finished(grade: state.grade ?? 0) || $0.pending == nil } ?? false
-        if state.grade != nil { state.clock.update(now: Date(), uptime: ProcessInfo.processInfo.systemUptime, wantsPlay: false, grade: state.grade!, restored: true); save() }
+        if state.grade != nil { state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: false, grade: state.grade!, restored: true); save() }
+    }
+    // Continuous boot time includes device sleep, so an ordinary locked-device
+    // break is not mistaken for a clock change or restart.
+    private static var continuousTime: TimeInterval {
+        var scale = mach_timebase_info_data_t()
+        mach_timebase_info(&scale)
+        return Double(mach_continuous_time()) * Double(scale.numer) / Double(scale.denom) / 1_000_000_000
     }
     var blocked: Bool { state.clock.remainingBreak(now: Date(), grade: state.grade ?? 0) > 0 }
     var wantsPlay: Bool { active && !parentOpen && state.grade != nil && error == nil }
@@ -37,7 +45,7 @@ import GardenCore
     }
     func tick() {
         guard let grade = state.grade else { return }
-        state.clock.update(now: Date(), uptime: ProcessInfo.processInfo.systemUptime, wantsPlay: wantsPlay, grade: grade)
+        state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: wantsPlay, grade: grade)
         state.prune(now: Date())
         if blocked { recap = true; state.round?.pending = nil; state.round?.response = nil }
         save()
