@@ -1,36 +1,26 @@
 # Contributing to Curiosity Garden
 
-Curiosity Garden is a native SwiftUI development preview. Please check the [confirmed requirements](docs/MVP_REQUIREMENTS.md) and [open decisions](docs/OPEN_DECISIONS.md) before proposing changes.
+Start with the [MVP requirements](docs/MVP_REQUIREMENTS.md), [open product decisions](docs/OPEN_DECISIONS.md), and [implementation choices](docs/IMPLEMENTATION_DECISIONS.md). Discuss substantial product changes in an issue; small fixes can go straight to a PR.
 
-## Changes
+For setup and signing, see [family builds](docs/FAMILY_BUILDS.md).
 
-- Use an issue to discuss substantial changes before implementation.
-- Keep pull requests focused, with a short explanation of the problem, resulting behavior, and validation.
-- Describe assumptions clearly. Product proposals should not be presented as approved requirements.
-- Preserve the calm experience, fixed stopping points, offline operation, and protected parent reports.
+## Workflow
 
-## Question and visual contributions
+1. Fork if needed, then create a branch from `main`. Keep each PR focused; separate unrelated content and app changes.
+2. Update affected tests and docs. Preserve offline operation, fixed breaks, parent privacy, and calm, score-free play.
+3. Before pushing, run the [coverage and Debug/Release build checks](docs/VALIDATION.md), plus `python3 -m unittest discover -s scripts/tests`. Production logic must retain **at least 95% line coverage overall and per file**. Keep it in tested targets; do not lower thresholds or add exclusions to pass.
+4. Use the [PR template](.github/pull_request_template.md): explain the change, review starting point, and check results. UI changes need synthetic screenshots and relevant iPhone/iPad accessibility checks. Merge through a PR after all required CI checks pass.
 
-- Submit original material or material you have permission to contribute under the applicable project terms.
-- Include factual sources and explain the intended subject, difficulty, and reading level.
-- Use two to four answer choices with one clearly correct answer and a short, age-appropriate explanation.
-- Avoid ambiguous questions, culturally assumed knowledge presented as universal, and time-sensitive facts without review.
-- Keep educational visuals simple and provide equivalent accessible descriptions.
-- Record review status honestly. Draft or AI-assisted material still needs the content-review process before release.
-- Preserve required third-party attribution and license notices.
+## Questions and visuals
 
-## Privacy
+Follow [content review](docs/CONTENT_REVIEW.md) for sources, licensing, difficulty/reading targets, choices, keys, and explanations. Keep IDs stable for corrections; use new IDs for materially different questions. Drafts, including AI-assisted content, need actual human approval before becoming `reviewed`. Marking a PR ready does not approve its questions.
 
-Use fictional examples and synthetic progress records in issues, screenshots, fixtures, and tests. Keep children's real histories, parent PINs, credentials, and signing materials outside the repository.
+Check ambiguity, cultural assumptions, and time-sensitive claims.
 
-## Validation
+Keep visuals educational and provide equivalent accessible descriptions. Retain required third-party notices.
 
-Run `bash scripts/test_coverage.sh` and the Debug/Release iOS build commands in README. Maintain at least 95% executable-line coverage overall and in every production logic file. New Swift logic files are automatically included and fail the gate if uninstrumented. The Core tests check is required by main branch protection; CI runs it on every push and pull request. Keep business logic out of the declarative SwiftUI view file. Do not lower thresholds or add exclusions to make a failing change pass. See docs/VALIDATION.md for device checks and docs/CONTENT_REVIEW.md for the human review gate. Work on a feature branch and open a pull request; do not push directly to main.
+## Privacy and attribution
 
-## Adapting and publishing
+Use fictional examples and synthetic progress. Never commit child histories, parent PINs, credentials, or signing materials. Use your own Git identity and credit co-authors; disclose AI assistance in content provenance.
 
-You are welcome to adapt and publish your own version under MIT. The maintainer's plan is family builds with no monetization or App Store release. See the [optional acknowledgment, repository-link, and GitHub-star request](README.md#acknowledgment-optional) if you would like to support the project.
-
-## License
-
-Project contributions are intended for distribution under the repository's [MIT license](LICENSE), subject to any separately identified third-party terms.
+Contribute under [MIT](LICENSE), preserving applicable notices. See the [distribution policy](README.md#adapting-and-publishing) for family builds and permitted adaptations.
