@@ -4,7 +4,6 @@ These details are not yet approved product requirements. Resolve them through th
 
 ## Distribution
 
-- Keep the first installed version for family use, or include an official App Store release in the initial scope?
 - Minimum iOS/iPadOS versions, supported device models, and orientation behavior.
 - Development and family installation workflow. Public release timing and pricing remain undecided.
 
