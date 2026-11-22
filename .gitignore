@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Xcode and Swift build output
+DerivedData/
+build/
+.build/
+.swiftpm/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.ipa
+*.dSYM/
+*.dSYM.zip
+
+# Local secrets and signing materials
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+
+# Reserved local-only data and report export directories
+LocalData/
+PrivateExports/
