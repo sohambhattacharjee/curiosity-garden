@@ -6,9 +6,11 @@ This document records product decisions from the requirements interview. It desc
 
 - An educational trivia game for children in kindergarten through grade 5.
 - Support both iPhone and iPad, with large, readable text and easy-to-tap answer choices.
-- The first installed version is for the owner's family.
+- Maintainer builds are for the owner's family, with no monetization.
 - Public, open-source GitHub project named `curiosity-garden`, licensed under MIT.
-- Prepare for official App Store publication after family testing and refinement. Public publication is outside the initial family MVP.
+- No maintainer App Store release is planned.
+- Others may adapt and publish their own versions under MIT, including on the App Store.
+- Acknowledgment, a repository link, and a GitHub star are friendly, optional requests. They add no license conditions.
 - The experience should support healthy stopping rather than encourage prolonged or compulsive play.
 
 ## Setup and parent access
@@ -26,6 +28,7 @@ This document records product decisions from the requirements interview. It desc
 - School subjects follow general U.S. grade-level expectations, without targeting a particular state's curriculum.
 - Every question offers two, three, or four answer choices. The question's content and difficulty determine the number of choices.
 - A reviewed question bank is bundled with the app and works offline. New content arrives through app updates for the MVP.
+- Missed questions and questions marked “I'm not sure” return occasionally in later sessions, mixed with fresh questions.
 - No runtime AI question generation or downloadable content service in the MVP.
 - No built-in read-aloud for the MVP. Some early readers may need adult assistance.
 - Simple educational visuals, such as shapes, counting objects, and basic diagrams, appear when they help explain a question.
@@ -90,6 +93,7 @@ Use these fixed session caps for the MVP. Parent customization of the caps is ou
 - Provide a simple overview, with optional question-by-question history.
 - The overview includes accuracy by subject, difficulty trends, areas to practice, and time spent.
 - Question-level detail includes the question, the child's answer, the correct answer, and the date.
+- Retain detailed answer history for ninety days. Saved subject difficulty and streaks continue across sessions.
 - Keep reports behind the parent PIN and outside child-facing play screens.
 - Store the profile, learning history, and reports locally on the device.
 - No account, internet connection, or cross-device synchronization is required for the MVP.

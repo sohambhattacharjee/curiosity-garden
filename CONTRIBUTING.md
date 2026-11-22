@@ -27,6 +27,10 @@ Use fictional examples and synthetic progress records in issues, screenshots, fi
 
 Build and test commands will be documented when the app implementation is added. For now, check documentation links and consistency with approved decisions.
 
+## Adapting and publishing
+
+You are welcome to adapt and publish your own version under MIT. The maintainer's plan is family builds with no monetization or App Store release. See the [optional acknowledgment, repository-link, and GitHub-star request](README.md#acknowledgment-optional) if you would like to support the project.
+
 ## License
 
 Project contributions are intended for distribution under the repository's [MIT license](LICENSE), subject to any separately identified third-party terms.
