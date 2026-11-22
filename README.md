@@ -2,7 +2,7 @@
 
 A calm, offline trivia app being designed for children in kindergarten through grade 5, on iPhone and iPad.
 
-**Status: requirements and planning. There is no runnable app or reviewed question bank yet.** The first installed version is intended for family use. The project is public and open source under the MIT license; a future official App Store release is compatible with this direction, with release timing still to be decided.
+**Status: requirements and planning. There is no runnable app or reviewed question bank yet.** The first installed version is intended for family testing. Official App Store publication is planned after family testing and refinement. The project is public and open source under the MIT license.
 
 ## Planned experience
 
