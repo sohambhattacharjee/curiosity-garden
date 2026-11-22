@@ -13,23 +13,29 @@ import Darwin
     let bank: [Question]
     let allowsDrafts: Bool
     private let url: URL
-    init() {
+    private let now: () -> Date
+    private let uptime: () -> TimeInterval
+    init(url: URL? = nil, bank: [Question]? = nil, allowsDrafts: Bool? = nil,
+         now: @escaping () -> Date = Date.init, uptime: (() -> TimeInterval)? = nil) {
+        self.now = now
+        self.uptime = uptime ?? { Self.continuousTime }
         #if DEBUG
-        allowsDrafts = true
+        self.allowsDrafts = allowsDrafts ?? true
         #else
-        allowsDrafts = false
+        self.allowsDrafts = allowsDrafts ?? false
         #endif
-        url = URL.applicationSupportDirectory.appending(path: "CuriosityGarden/state.json")
-        if let bankURL = Bundle.main.url(forResource: "questions", withExtension: "json"),
+        self.url = url ?? URL.applicationSupportDirectory.appending(path: "CuriosityGarden/state.json")
+        if let bank { self.bank = bank }
+        else if let bankURL = Bundle.main.url(forResource: "questions", withExtension: "json"),
            let data = try? Data(contentsOf: bankURL), let decoded = try? JSONDecoder().decode([Question].self, from: data) {
-            bank = decoded
-        } else { bank = [] }
-        do { state = try JSONDecoder().decode(GardenState.self, from: Data(contentsOf: url)) }
-        catch { if FileManager.default.fileExists(atPath: url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Contact the family build owner." } }
-        state.prune(now: Date())
-        state.validateResumedContent(allowDrafts: allowsDrafts)
+            self.bank = decoded
+        } else { self.bank = [] }
+        do { state = try JSONDecoder().decode(GardenState.self, from: Data(contentsOf: self.url)) }
+        catch { if FileManager.default.fileExists(atPath: self.url.path) { self.error = "Saved progress could not be read. Play is paused to protect your session limit. Contact the family build owner." } }
+        state.prune(now: now())
+        state.validateResumedContent(allowDrafts: self.allowsDrafts)
         recap = state.round?.needsRecap ?? false
-        if state.grade != nil { state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: false, grade: state.grade!, restored: true); save() }
+        if state.grade != nil { state.clock.update(now: now(), uptime: self.uptime(), wantsPlay: false, grade: state.grade!, restored: true); save() }
     }
     // Continuous boot time includes device sleep, so an ordinary locked-device
     // break is not mistaken for a clock change or restart.
@@ -38,7 +44,7 @@ import Darwin
         mach_timebase_info(&scale)
         return Double(mach_continuous_time()) * Double(scale.numer) / Double(scale.denom) / 1_000_000_000
     }
-    var blocked: Bool { state.clock.remainingBreak(now: Date(), grade: state.grade ?? 0) > 0 }
+    var blocked: Bool { state.clock.remainingBreak(now: now(), grade: state.grade ?? 0) > 0 }
     var wantsPlay: Bool { active && !parentOpen && state.grade != nil && error == nil }
     func save() {
         do {
@@ -49,8 +55,8 @@ import Darwin
     }
     func tick() {
         guard let grade = state.grade else { return }
-        state.clock.update(now: Date(), uptime: Self.continuousTime, wantsPlay: wantsPlay, grade: grade)
-        state.prune(now: Date())
+        state.clock.update(now: now(), uptime: self.uptime(), wantsPlay: wantsPlay, grade: grade)
+        state.prune(now: now())
         if blocked { recap = true; state.round?.end(.sessionLimit) }
         save()
     }
@@ -70,7 +76,7 @@ import Darwin
             round.end(.completed); state.round = round; recap = true; save(); return
         }
         round.response = nil
-        round.pending = QuestionPicker.pick(bank: bank, grade: grade, progress: state.progress, round: round, history: state.history, allowDrafts: allowsDrafts, now: Date(), sessionID: state.clock.id)
+        round.pending = QuestionPicker.pick(bank: bank, grade: grade, progress: state.progress, round: round, history: state.history, allowDrafts: allowsDrafts, now: now(), sessionID: state.clock.id)
         if round.pending == nil { round.end(.contentUnavailable); recap = true }
         state.round = round
         save()
@@ -81,7 +87,7 @@ import Darwin
         let oldLevel = progress.level
         progress.answer(correct: response == .choice(question.correct))
         state.progress[question.subject] = progress
-        let record = AnswerRecord(roundID: round.id, question: question, response: response, date: Date(), levelAfter: progress.level, sessionID: state.clock.id)
+        let record = AnswerRecord(roundID: round.id, question: question, response: response, date: now(), levelAfter: progress.level, sessionID: state.clock.id)
         round.record(record, oldLevel: oldLevel); state.history.append(record); state.round = round; save()
     }
     func lifecycle(_ phase: ScenePhase) {

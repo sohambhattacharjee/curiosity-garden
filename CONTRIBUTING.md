@@ -25,7 +25,7 @@ Use fictional examples and synthetic progress records in issues, screenshots, fi
 
 ## Validation
 
-Run `swift test` and the Debug/Release iOS build commands in README. See docs/VALIDATION.md for device checks and docs/CONTENT_REVIEW.md for the human review gate. Work on a feature branch and open a pull request; do not push directly to main.
+Run `bash scripts/test_coverage.sh` and the Debug/Release iOS build commands in README. Maintain at least 95% executable-line coverage overall and in every production logic file. New Swift logic files are automatically included and fail the gate if uninstrumented. The Core tests check is required by main branch protection; CI runs it on every push and pull request. Keep business logic out of the declarative SwiftUI view file. Do not lower thresholds or add exclusions to make a failing change pass. See docs/VALIDATION.md for device checks and docs/CONTENT_REVIEW.md for the human review gate. Work on a feature branch and open a pull request; do not push directly to main.
 
 ## Adapting and publishing
 

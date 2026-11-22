@@ -175,6 +175,48 @@ final class GardenCoreTests: XCTestCase {
             XCTAssertNil(ended.pending); XCTAssertEqual(ended.answers.count, 10)
         }
     }
+
+    func testRetentionRemovesExpiredRoundButPreservesFreshPendingRound() {
+        var state = GardenState(); var old = Round(); old.pending = question()
+        old.answers = [AnswerRecord(roundID: old.id, question: question(), response: .unsure, date: date.addingTimeInterval(-91 * 86400), levelAfter: 0)]
+        state.round = old; state.prune(now: date); XCTAssertNil(state.round)
+        var fresh = Round(); fresh.pending = question(); state.round = fresh
+        state.prune(now: date); XCTAssertNotNil(state.round?.pending)
+        fresh.answers = [AnswerRecord(roundID: fresh.id, question: question(), response: .choice(0), date: date, levelAfter: 0)]
+        state.round = fresh; state.prune(now: date); XCTAssertEqual(state.round?.answers.count, 1)
+    }
+    func testIncompleteLegacyClockSnapshotStillRequiresBreak() throws {
+        var json = try XCTUnwrap(JSONSerialization.jsonObject(with: JSONEncoder().encode(SessionClock())) as? [String: Any])
+        json["used"] = 1200
+        let clock = try JSONDecoder().decode(SessionClock.self, from: JSONSerialization.data(withJSONObject: json))
+        XCTAssertEqual(clock.remainingBreak(now: date, grade: 0), 1800)
+    }
+
+    func testParentReportAccuracyPracticeAndAnswerLabels() {
+        let empty = SubjectReport(subject: .math, level: 0, history: [])
+        XCTAssertEqual(empty.accuracyText, "No answers yet")
+        XCTAssertEqual(empty.difficultyText, "Difficulty: K · No trend yet")
+        XCTAssertFalse(empty.needsPractice)
+        var history = [AnswerRecord(roundID: UUID(), question: question(), response: .unsure, date: date, levelAfter: 1)]
+        history.append(AnswerRecord(roundID: UUID(), question: question(), response: .choice(0), date: date + 1, levelAfter: 2))
+        history.append(AnswerRecord(roundID: UUID(), question: question(.nature), response: .choice(0), date: date + 2, levelAfter: 5))
+        let report = SubjectReport(subject: .math, level: 2, history: history.reversed())
+        XCTAssertEqual(report.accuracyText, "1 correct of 2 attempts (50%)")
+        XCTAssertEqual(report.difficultyText, "Difficulty: Grade 2 · Moving to harder material")
+        XCTAssertTrue(report.needsPractice)
+        XCTAssertEqual(SubjectReport.answerText(history[0]), "I'm not sure")
+        XCTAssertEqual(SubjectReport.answerText(history[1]), "Two")
+        var invalid = history[0]; invalid.response = .choice(99)
+        XCTAssertEqual(SubjectReport.answerText(invalid), "Answer unavailable")
+        history[1].levelAfter = 0
+        XCTAssertTrue(SubjectReport(subject: .math, level: 0, history: history).difficultyText.contains("Practicing foundations"))
+        history[1].levelAfter = 1
+        XCTAssertTrue(SubjectReport(subject: .math, level: 1, history: history).difficultyText.contains("Steady"))
+        for index in 2..<7 {
+            history.append(AnswerRecord(roundID: UUID(), question: question(), response: .choice(0), date: date + Double(index), levelAfter: 1))
+        }
+        XCTAssertFalse(SubjectReport(subject: .math, level: 1, history: history).needsPractice)
+    }
     func testDraftBankIsValidAndMixedRoundCompletes() throws {
         let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appending(path: "App/questions.json")
         let bank = try JSONDecoder().decode([Question].self, from: Data(contentsOf: url))

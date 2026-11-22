@@ -150,21 +150,18 @@ struct ParentView: View {
     private var gradeSetting: some View {
         VStack(alignment: .leading) {
             Picker("Selected grade (reading and future session limits)", selection: Binding(get: { store.state.grade ?? 0 }, set: { store.setup(grade: $0) })) {
-                ForEach(0...5, id: \.self) { Text(level($0)).tag($0) }
+                ForEach(0...5, id: \.self) { Text(SubjectReport.gradeName($0)).tag($0) }
             }
             Text("Changing grade preserves subject learning and the current session allowance.").font(.footnote)
         }
     }
     private func subjectSummary(_ subject: GardenCore.Subject) -> some View {
-        let records = store.state.history.filter { $0.question.subject == subject }
-        let correct = records.filter { $0.correct }.count
-        let percent = records.isEmpty ? 0 : Int(Double(correct) / Double(records.count) * 100)
-        let accuracy = records.isEmpty ? "No answers yet" : "\(correct) correct of \(records.count) attempts (\(percent)%)"
+        let report = SubjectReport(subject: subject, level: store.state.progress[subject]?.level ?? 0, history: store.state.history)
         return VStack(alignment: .leading) {
             Text(subject.title).font(.headline)
-            Text(accuracy)
-            Text("Difficulty: \(level(store.state.progress[subject]?.level ?? 0)) · \(trend(records))")
-            if records.suffix(5).contains(where: { !$0.correct }) {
+            Text(report.accuracyText)
+            Text(report.difficultyText)
+            if report.needsPractice {
                 Text("Practice: revisit recent explanations together.")
             }
         }
@@ -172,18 +169,9 @@ struct ParentView: View {
     private func historyRow(_ record: AnswerRecord) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(record.question.prompt).font(.headline)
-            Text("Answer: \(answer(record)) · Correct: \(record.question.choices[record.question.correct])")
+            Text("Answer: \(SubjectReport.answerText(record)) · Correct: \(record.question.choices[record.question.correct])")
             Text(record.date.formatted()).font(.caption)
             Text("Content: \(record.question.status.rawValue)").font(.caption)
         }.padding(.vertical, 8)
-    }
-    private func level(_ value: Int) -> String { value == 0 ? "K" : "Grade \(value)" }
-    private func trend(_ records: [AnswerRecord]) -> String {
-        guard let first = records.first, let last = records.last else { return "No trend yet" }
-        return last.levelAfter > first.levelAfter ? "Moving to harder material" : last.levelAfter < first.levelAfter ? "Practicing foundations" : "Steady"
-    }
-    private func answer(_ record: AnswerRecord) -> String {
-        if case let .choice(index) = record.response { return record.question.choices[index] }
-        return "I'm not sure"
     }
 }

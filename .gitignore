@@ -39,3 +39,6 @@ xcuserdata/
 state.json
 *.xcarchive
 *.ipa
+
+__pycache__/
+*.pyc

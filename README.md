@@ -50,11 +50,11 @@ Captured from local Xcode simulator runs using synthetic progress. These show a 
 Open `CuriosityGarden.xcodeproj` and run the shared CuriosityGarden scheme on an iPhone/iPad simulator or your own signed device. Debug builds allow draft fixtures with a visible banner; Release builds accept reviewed content only and currently have no playable reviewed bank.
 
 ```sh
-swift test
+bash scripts/test_coverage.sh
 xcodebuild -project CuriosityGarden.xcodeproj -scheme CuriosityGarden -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 ```
 
-See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI checks core rules and both Debug/Release iOS compilation. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
+See [family installation](docs/FAMILY_BUILDS.md), [implementation choices](docs/IMPLEMENTATION_DECISIONS.md), [content review](docs/CONTENT_REVIEW.md), and [validation](docs/VALIDATION.md). CI requires 95% unit-test line coverage overall and for every production logic file, plus Debug/Release iOS compilation, on every push and pull request. The declarative SwiftUI view file is checked through UI validation rather than unit coverage. The pure Swift core has no external dependencies. Production content review and device accessibility validation remain release gates.
 
 ## Adapting and publishing
 
