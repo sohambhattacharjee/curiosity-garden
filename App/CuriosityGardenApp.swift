@@ -74,7 +74,11 @@ struct GardenView: View {
     private var standardContent: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Label("Curiosity Garden", systemImage: "leaf").readingText(.question).accessibilityAddTraits(.isHeader)
+                Label {
+                    Text("Curiosity Garden")
+                } icon: {
+                    Image(decorative: "GardenFox").resizable().scaledToFit().frame(width: 56, height: 56)
+                }.readingText(.question).accessibilityAddTraits(.isHeader)
                 if store.allowsDrafts { Text("Draft questions · Not reviewed").font(.callout).padding().background(Palette.sage, in: RoundedRectangle(cornerRadius: 12)) }
                 if let error = store.error { Text(error) }
                 else if store.state.grade == nil { SetupView() }
