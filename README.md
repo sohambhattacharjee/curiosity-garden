@@ -6,11 +6,13 @@ A calm, offline trivia app being designed for children in kindergarten through g
 
 ## Screenshots
 
-Real simulator captures using synthetic progress and **draft placeholder questions**. The iPhone capture uses Extra large in-app text at the largest device text setting; the question, choices, explanation, I'm not sure, and Next fit together.
+Real simulator captures using synthetic progress and **draft placeholder questions**. The iPhone captures use Extra large in-app text at the largest device text setting; the question, choices, explanation, I'm not sure, and Next fit together in portrait and landscape.
 
 <img src="docs/screenshots/iphone-reading-maximum.png" width="300" alt="Compact iPhone question with all choices, feedback, I'm not sure, and Next visible at the largest text setting" />
 
-<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape with every question choice, I'm not sure, and disabled Next visible together" />
+<img src="docs/screenshots/iphone-landscape.png" width="760" alt="iPhone landscape with wrapped choices, explanation, I'm not sure, and Next visible at the largest text setting" />
+
+<img src="docs/screenshots/ipad-landscape.png" width="760" alt="iPad landscape with choices, explanation, I'm not sure, and Next visible together" />
 
 <img src="docs/screenshots/ipad-explanation.png" width="400" alt="iPad portrait with answer feedback and both controls visible together" />
 

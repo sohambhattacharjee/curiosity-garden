@@ -57,6 +57,17 @@ final class ReadingAndReportTests: XCTestCase {
         XCTAssertEqual(SubjectReport.playTimeText(60), "1 minute")
         XCTAssertEqual(SubjectReport.playTimeText(120), "2 minutes")
     }
+    func testPracticeFactsAreUniqueAndStableWhenDatesMatch() {
+        var first = record(id: "a", correct: false, date: now)
+        var duplicate = record(id: "b", correct: false, date: now)
+        let other = record(id: "c", correct: false, date: now)
+        first.question.explanation = "Shared fact"
+        duplicate.question.explanation = "Shared fact"
+        for history in [[first, duplicate, other], [other, duplicate, first]] {
+            let report = SubjectReport(subject: .math, level: 0, history: history)
+            XCTAssertEqual(report.practiceFacts, ["Shared fact", "Fact c"])
+        }
+    }
     func testPracticeFactsUseLatestAttemptAndRemainSubjectSpecific() {
         let history = [record(id: "resolved", correct: false, date: now - 5), record(id: "resolved", correct: true, date: now), record(id: "old", correct: false, date: now - 4), record(id: "middle", correct: false, date: now - 3), record(id: "latest", correct: false, date: now - 2), record(id: "other", correct: false, date: now, subject: .science)]
         let report = SubjectReport(subject: .math, level: 0, history: history)

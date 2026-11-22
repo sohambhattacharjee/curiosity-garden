@@ -24,7 +24,15 @@ public struct SubjectReport: Sendable {
     public var needsPractice: Bool { records.suffix(5).contains { !$0.correct } }
     public var practiceFacts: [String] {
         let latest = Dictionary(grouping: records, by: { $0.question.id }).values.compactMap { $0.last }
-        return latest.filter { !$0.correct }.sorted { $0.date > $1.date }.prefix(2).map { $0.question.explanation }
+        let missed = latest.filter { !$0.correct }.sorted {
+            $0.date == $1.date ? $0.question.id < $1.question.id : $0.date > $1.date
+        }
+        var seen = Set<String>()
+        let unique = missed.compactMap { record -> String? in
+            let fact = record.question.explanation
+            return seen.insert(fact).inserted ? fact : nil
+        }
+        return Array(unique.prefix(2))
     }
     public static func playTimeText(_ seconds: TimeInterval) -> String {
         if seconds <= 0 { return "No play recorded" }

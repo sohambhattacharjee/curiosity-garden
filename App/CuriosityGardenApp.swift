@@ -53,9 +53,12 @@ struct GardenView: View {
                 if store.error == nil, !store.blocked, !store.recap, let question = store.state.round?.pending {
                     GeometryReader { geometry in
                         ViewThatFits(in: .vertical) {
-                            questionScreen(question, factor: 1)
-                            questionScreen(question, factor: 0.9)
-                            questionScreen(question, factor: 0.8)
+                            questionScreen(question, factor: 1, wide: geometry.size.width > geometry.size.height)
+                            questionScreen(question, factor: 0.9, wide: geometry.size.width > geometry.size.height)
+                            questionScreen(question, factor: 0.8, wide: geometry.size.width > geometry.size.height)
+                            ScrollView {
+                                questionScreen(question, factor: 0.8, wide: geometry.size.width > geometry.size.height)
+                            }
                         }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                     }.navigationTitle("Curiosity Garden").navigationBarTitleDisplayMode(.inline)
                 } else { standardContent }
@@ -88,15 +91,39 @@ struct GardenView: View {
             }.readingText().frame(maxWidth: 680, alignment: .leading).padding(20).frame(maxWidth: .infinity)
         }
     }
-    private func questionScreen(_ question: Question, factor: Double) -> some View {
+    private var draftBadge: some View {
+        Text("Draft questions · Not reviewed").font(.system(size: 13)).padding(.horizontal, 12).padding(.vertical, 6)
+            .background(Palette.sage, in: RoundedRectangle(cornerRadius: 8))
+    }
+    private func questionScreen(_ question: Question, factor: Double, wide: Bool) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            if store.allowsDrafts { Text("Draft questions · Not reviewed").font(.system(size: 13)).padding(.horizontal, 12).padding(.vertical, 6).background(Palette.sage, in: RoundedRectangle(cornerRadius: 8)) }
-            questionView(question, factor: factor)
-        }.frame(maxWidth: 680).padding(.horizontal, 12).padding(.vertical, 8)
+            if !wide && store.allowsDrafts { draftBadge }
+            if wide {
+                HStack(alignment: .top, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 10 * factor) {
+                        if store.allowsDrafts { draftBadge }
+                        questionHeading(question, factor: factor)
+                        questionFeedback(question, factor: factor)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(spacing: 10 * factor) {
+                        answerChoices(question, factor: factor, columns: 2)
+                        questionControls
+                    }.frame(maxWidth: .infinity)
+                }.padding(12).background(.white, in: RoundedRectangle(cornerRadius: 16))
+            } else { questionView(question, factor: factor) }
+        }.frame(maxWidth: wide ? 1000 : 680).padding(.horizontal, 12).padding(.vertical, 8)
             .fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity)
             .dynamicTypeSize(...DynamicTypeSize.large)
     }
     private func questionView(_ question: Question, factor: Double) -> some View {
+        VStack(alignment: .leading, spacing: 10 * factor) {
+            questionHeading(question, factor: factor)
+            answerChoices(question, factor: factor, columns: 1)
+            questionFeedback(question, factor: factor)
+            questionControls
+        }.padding(12).background(.white, in: RoundedRectangle(cornerRadius: 16))
+    }
+    private func questionHeading(_ question: Question, factor: Double) -> some View {
         VStack(alignment: .leading, spacing: 10 * factor) {
             Text(question.subject.title).readingText(.note, factor: factor)
             Text(question.prompt).readingText(.question, factor: factor).fixedSize(horizontal: false, vertical: true).accessibilityAddTraits(.isHeader)
@@ -109,33 +136,39 @@ struct GardenView: View {
                     }
                 }.foregroundStyle(Palette.green)
             }
-            VStack(spacing: 8) {
-                ForEach(question.choices.indices, id: \.self) { index in
-                    Button { store.answer(.choice(index)) } label: {
-                        HStack {
-                            Text(question.choices[index]).readingText(.answer, factor: factor).fixedSize(horizontal: false, vertical: true)
-                            Spacer(minLength: 4)
-                            if store.state.round?.response != nil && index == question.correct {
-                                Image(systemName: "checkmark.circle.fill").accessibilityLabel("Correct answer")
-                            }
-                        }.padding(.horizontal, 12).padding(.vertical, 6).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                    }.buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
-                }
+        }
+    }
+    private func answerChoices(_ question: Question, factor: Double, columns: Int) -> some View {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: columns), spacing: 8) {
+            ForEach(question.choices.indices, id: \.self) { index in
+                Button { store.answer(.choice(index)) } label: {
+                    HStack {
+                        Text(question.choices[index]).readingText(.answer, factor: factor).fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 4)
+                        if store.state.round?.response != nil && index == question.correct {
+                            Image(systemName: "checkmark.circle.fill").accessibilityLabel("Correct answer")
+                        }
+                    }.padding(.horizontal, 12).padding(.vertical, 6).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                }.buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
             }
-            if let response = store.state.round?.response {
-                Text(response == .choice(question.correct) ? "Yes, that's it." : "Let's learn together.").readingText(.answer, factor: factor)
-                Text("The answer is \(question.choices[question.correct]). \(question.explanation)").readingText(.body, factor: factor).fixedSize(horizontal: false, vertical: true)
+        }
+    }
+    @ViewBuilder private func questionFeedback(_ question: Question, factor: Double) -> some View {
+        if let response = store.state.round?.response {
+            Text(response == .choice(question.correct) ? "Yes, that's it." : "Let's learn together.").readingText(.answer, factor: factor)
+            Text("The answer is \(question.choices[question.correct]). \(question.explanation)").readingText(.body, factor: factor).fixedSize(horizontal: false, vertical: true)
+        }
+    }
+    private var questionControls: some View {
+        HStack(spacing: 12) {
+            Button { store.answer(.unsure) } label: {
+                Text("I'm not sure").frame(maxWidth: .infinity, minHeight: 44)
             }
-            HStack(spacing: 12) {
-                Button { store.answer(.unsure) } label: {
-                    Text("I'm not sure").frame(maxWidth: .infinity, minHeight: 44)
-                }
-                    .buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
-                Button { store.next() } label: {
-                    Text("Next").frame(maxWidth: .infinity, minHeight: 44)
-                }.buttonStyle(NextButtonStyle()).disabled(store.state.round?.response == nil)
-            }.font(.system(size: 18, design: store.state.reading.font == .rounded ? .rounded : .default))
-        }.padding(12).background(.white, in: RoundedRectangle(cornerRadius: 16))
+                .buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
+            Button { store.next() } label: {
+                Text("Next").frame(maxWidth: .infinity, minHeight: 44)
+            }.buttonStyle(NextButtonStyle()).disabled(store.state.round?.response == nil)
+        }.font(.system(size: 18, design: store.state.reading.font == .rounded ? .rounded : .default))
     }
     private var recap: some View {
         VStack(alignment: .leading, spacing: 20) {
