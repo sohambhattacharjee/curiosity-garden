@@ -1,5 +1,7 @@
 # Curiosity Garden
 
+<img src="App/Assets.xcassets/GardenFox.imageset/GardenFox.png" width="140" alt="A laughing fox holding a magnifying glass among garden leaves and flowers" />
+
 An offline SwiftUI trivia app for iPhone and iPad, covering kindergarten through grade 5. Progress, parent settings, and reports stay on the device.
 
 ## Run

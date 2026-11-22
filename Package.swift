@@ -6,7 +6,7 @@ let package = Package(
     targets: [
         .target(name: "GardenCore"),
         // Compile the same state/PIN sources used by the iOS target for unit tests.
-        .target(name: "GardenAppLogic", dependencies: ["GardenCore"], path: "App", exclude: ["CuriosityGardenApp.swift", "questions.json"]),
+        .target(name: "GardenAppLogic", dependencies: ["GardenCore"], path: "App", exclude: ["CuriosityGardenApp.swift", "questions.json", "Assets.xcassets"]),
         .testTarget(name: "GardenCoreTests", dependencies: ["GardenCore"]),
         .testTarget(name: "GardenAppLogicTests", dependencies: ["GardenAppLogic", "GardenCore"])
     ])
