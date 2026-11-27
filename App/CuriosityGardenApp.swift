@@ -11,11 +11,39 @@ private enum Palette {
     static let sage = Color(red: 0.89, green: 0.937, blue: 0.906)
     static let green = Color(red: 0.208, green: 0.4, blue: 0.325)
     static let ink = Color(red: 0.141, green: 0.204, blue: 0.227)
+    static let quiet = Color(red: 0.945, green: 0.953, blue: 0.965)
+    static let selectedMistake = Color(red: 0.886, green: 0.898, blue: 0.906)
+    static let correctAnswer = Color(red: 0.82, green: 0.92, blue: 0.85)
+    static let grayOutline = Color(red: 0.47, green: 0.51, blue: 0.53)
 }
 private struct AnswerButtonStyle: ButtonStyle {
+    let state: AnswerChoiceState
+    private var fill: Color {
+        switch state {
+        case .selectedIncorrect: Palette.selectedMistake
+        case .selectedCorrect, .revealedCorrect: Palette.correctAnswer
+        case .available, .unselected: Palette.sage
+        }
+    }
+    private var outline: Color {
+        switch state {
+        case .selectedIncorrect: Palette.grayOutline
+        case .selectedCorrect, .revealedCorrect: Palette.green
+        case .available, .unselected: .clear
+        }
+    }
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.foregroundStyle(Palette.ink)
-            .background(Palette.sage, in: RoundedRectangle(cornerRadius: 14))
+            .background(fill, in: RoundedRectangle(cornerRadius: 14))
+            .overlay { RoundedRectangle(cornerRadius: 14).strokeBorder(outline, lineWidth: 2) }
+            .opacity(configuration.isPressed ? 0.85 : 1)
+    }
+}
+private struct UnsureButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.foregroundStyle(Palette.ink)
+            .background(Palette.quiet, in: RoundedRectangle(cornerRadius: 14))
+            .overlay { RoundedRectangle(cornerRadius: 14).strokeBorder(Palette.ink.opacity(0.18), lineWidth: 1) }
             .opacity(configuration.isPressed ? 0.85 : 1)
     }
 }
@@ -23,7 +51,7 @@ private struct NextButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.foregroundStyle(isEnabled ? .white : Palette.ink)
-            .padding(.horizontal, 12).padding(.vertical, 6)
+            .padding(.horizontal, 12)
             .background(isEnabled ? Palette.green : Color(red: 0.906, green: 0.929, blue: 0.973), in: RoundedRectangle(cornerRadius: 14))
             .opacity(configuration.isPressed ? 0.85 : 1)
     }
@@ -46,6 +74,9 @@ private extension View {
 struct GardenView: View {
     @EnvironmentObject var store: GardenStore
     @Environment(\.scenePhase) private var phase
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var answerHeight: CGFloat { sizeClass == .regular ? 68 : 56 }
+    private var answerSpacing: CGFloat { sizeClass == .regular ? 12 : 10 }
     private let pulse = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         NavigationStack {
@@ -143,34 +174,48 @@ struct GardenView: View {
         }
     }
     private func answerChoices(_ question: Question, factor: Double, columns: Int) -> some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: columns), spacing: 8) {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: answerSpacing), count: columns), spacing: answerSpacing) {
             ForEach(question.choices.indices, id: \.self) { index in
+                let state = AnswerChoiceState(option: index, correct: question.correct, response: store.state.round?.response)
                 Button { store.answer(.choice(index)) } label: {
-                    HStack {
-                        Text(question.choices[index]).readingText(.answer, factor: factor).fixedSize(horizontal: false, vertical: true)
-                        Spacer(minLength: 4)
-                        if store.state.round?.response != nil && index == question.correct {
-                            Image(systemName: "checkmark.circle.fill").accessibilityLabel("Correct answer")
+                    HStack(spacing: 10) {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(question.choices[index]).readingText(.answer, factor: factor).fixedSize(horizontal: false, vertical: true)
+                            if let annotation = state.annotation {
+                                Text(annotation).font(.system(size: max(12, 14 * factor), weight: .semibold,
+                                                              design: store.state.reading.font == .rounded ? .rounded : .default))
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                         }
-                    }.padding(.horizontal, 12).padding(.vertical, 6).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                }.buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
+                        Spacer(minLength: 0)
+                        if state == .selectedIncorrect {
+                            Image(systemName: "minus.circle.fill").foregroundStyle(Palette.grayOutline).accessibilityHidden(true)
+                        } else if state == .selectedCorrect || state == .revealedCorrect {
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Palette.green).accessibilityHidden(true)
+                        }
+                    }.padding(.horizontal, 16).padding(.vertical, sizeClass == .regular ? 14 : 10)
+                        .frame(maxWidth: .infinity, minHeight: answerHeight, alignment: .leading)
+                        .contentShape(RoundedRectangle(cornerRadius: 14))
+                }.buttonStyle(AnswerButtonStyle(state: state)).disabled(store.state.round?.response != nil)
+                    .accessibilityLabel(question.choices[index]).accessibilityValue(state.annotation ?? "")
+                    .accessibilityAddTraits(state == .selectedCorrect || state == .selectedIncorrect ? .isSelected : [])
             }
         }
     }
     @ViewBuilder private func questionFeedback(_ question: Question, factor: Double) -> some View {
         if let response = store.state.round?.response {
-            Text(response == .choice(question.correct) ? "Yes, that's it." : "Let's learn together.").readingText(.answer, factor: factor)
-            Text("The answer is \(question.choices[question.correct]). \(question.explanation)").readingText(.body, factor: factor).fixedSize(horizontal: false, vertical: true)
+            Text(response == .choice(question.correct) ? "Yes, that's it." : response == .unsure ? "Let's learn together." : "Not quite. Let's learn together.").readingText(.answer, factor: factor)
+            Text(question.explanation).readingText(.body, factor: factor).fixedSize(horizontal: false, vertical: true)
         }
     }
     private var questionControls: some View {
         HStack(spacing: 12) {
             Button { store.answer(.unsure) } label: {
-                Text("I'm not sure").frame(maxWidth: .infinity, minHeight: 44)
+                Text("I'm not sure").frame(maxWidth: .infinity, minHeight: 56)
             }
-                .buttonStyle(AnswerButtonStyle()).disabled(store.state.round?.response != nil)
+                .buttonStyle(UnsureButtonStyle()).disabled(store.state.round?.response != nil)
             Button { store.next() } label: {
-                Text("Next").frame(maxWidth: .infinity, minHeight: 44)
+                Text("Next").frame(maxWidth: .infinity, minHeight: 56)
             }.buttonStyle(NextButtonStyle()).disabled(store.state.round?.response == nil)
         }.font(.system(size: 18, design: store.state.reading.font == .rounded ? .rounded : .default))
     }

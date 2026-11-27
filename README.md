@@ -27,11 +27,11 @@ The approved bank works offline in Debug and Release. See [question format](docs
 
 ## Screenshots
 
-Earlier development builds with synthetic progress.
+Largest app text setting with synthetic progress.
 
-<img src="docs/screenshots/iphone-reading-maximum.png" width="260" alt="iPhone question, choices, explanation, I'm not sure, and Next" />
+<img src="docs/screenshots/iphone-reading-maximum.png" width="260" alt="iPhone with a muted incorrect choice, highlighted correct answer, explanation, and all controls visible" />
 
-<img src="docs/screenshots/ipad-landscape.png" width="640" alt="iPad landscape question and answer controls" />
+<img src="docs/screenshots/ipad-landscape.png" width="640" alt="iPad landscape with larger answer buttons, gray selected mistake, and green correct answer" />
 
 ## Development
 
