@@ -50,6 +50,7 @@ This document records product decisions from the requirements interview. It desc
 ## Feedback and rounds
 
 - After an incorrect answer, show the correct answer and a short explanation.
+- Keep the chosen incorrect option highlighted in muted grey and identify the correct option separately with words and an icon. Use a subtler color for “I'm not sure” than for answer choices.
 - Wait for the child to tap “Next” before continuing after this feedback.
 - A normally completed round has at least ten questions.
 - Extend a round only for difficulty calibration, when the app is still establishing appropriate difficulty.
